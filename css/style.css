@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*NAV BAR*/
+header {
+    width: 100%;
+    background-color: #2F4F4F;
+    display: flex;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+ /* Body style section */
+
+h1 { color: rgb(0, 123, 195);
+    font-family: 'Raleway',sans-serif;
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 0 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 { color: rgb(0, 0, 0);
+    font-family: 'Raleway',sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 0 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+img {
+    margin-top: 20px;
+}
+
+a {
+    font-weight: bold;
+}
+
+hr {
+    border-top: 1px solid red;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+}
+
+iframe {
+    margin: 5px;
+}
+/* Parties */
+
+section {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+/* Partie 1 / one */
+.one {
+    background-color: #C0C0C0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.oneT {
+    display: flex;
+}
+
+.one img {
+    max-height: 350px;
+    margin: 20px;
+
+}
+
+/* Partie 2 / two */
+
+.two {
+    background-color: #8d9eaf;
+    padding-bottom: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.two h1 {
+    color: rgb(0, 77, 121);
+}
+
+/* Partie 3 / three */
+
+.three {
+    background: #DCDCDC;
+    padding-bottom: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+/* Image partie 3 */
+.three img {
+    width: 40%;
+}
+
+/* Long paragraphe */
+.text {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+/* Boutton */
+.lien {
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 15px;
+    background-color: rgb(0, 123, 195);
+    color: rgb(0, 0, 0);
+}
+/* Interraction */
+.lien:hover {
+    cursor: pointer;
+    background-color: rgb(165, 211, 214);
+    color: rgb(3, 3, 3);
+}
+
+/* Pied de page */
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(63, 62, 76);
+    text-align: center;
+}
+footer p {
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .oneT {
+        display: block;
+    }
+}
+
+@media (max-width: 700px) {
+    .iframe{
+        max-width: 265px;
+        max-height: 150px;
+    }
+}
+
+/* Vidéo responsive */
+.iframe{
+    width: 530px;
+    height: 300px;
+}
