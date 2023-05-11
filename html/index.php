@@ -23,8 +23,16 @@
             <img src="../img/logo_voiture_marron.png">
             </div>
             <div class="headerDroit">
-                <div id="headerConnexion"><p>Connexion</p></div>
-                <div><p id="headerInscription">Inscription</p></div>
+                <?php 
+                    if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
+                        echo "<a href='profils.php'><h1>". $_POST['email'] ."</h1></a>
+                        <img src='../img/trois_points.png' class='accesProfil'>";
+                    } else {
+                        echo "<div id='headerConnexion'><p>Connexion</p></div>
+                        <div><p id='headerInscription'>Inscription</p></div>";
+                    }
+                ?>
+
             </div>
 
         </header>
