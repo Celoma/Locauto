@@ -13,12 +13,17 @@
 <body>
     <div class="Main">
         <header>
-            <img src="../img/bouton_menu_ouvrir.png" class="navBarOpen">
-            <div class="navBar">
+            <div class="headerGauche">
+                <img src="../img/bouton_menu_ouvrir.png" class="navBarOpen">
+                <div class="navBar">
+                </div>
+                <img src="../img/logo_rouge_marron.png">
             </div>
-            <div class="headerDroit"></div>
-            <div id="headerConnexion"><p >Connexion</p></div>
-            <div><p id="headerInscription">Inscription</p></div>
+            <div class="headerDroit">
+                <div id="headerConnexion"><p>Connexion</p></div>
+                <div><p id="headerInscription">Inscription</p></div>
+            </div>
+
         </header>
         <div>
             <p>Code couleur:
@@ -36,6 +41,29 @@
     </div>
     <div class="PopUpBg" id="PopUpBg">
     </div>
+    <div class="PopUpInscription">
+    <form action="index.php" method="post">
+    <br>
+    <h1>S'inscrire</h1>
+    <div>
+    <label for="emailCreate">Email:</label>
+    <input type="email" id="emailCreate" name="emailCreate">
+    </div>
+
+    <div>
+        <label for="passCreate">Mot de passe:</label>
+        <input type="password" id="passCreate" name="passCreate"
+            minlength="8" required>
+    </div>
+
+    <input type="submit" value="Connexion">
+    </form>
+    <br>
+    <p id="linkConnexion">Se connecter</p>
+    </div>
+
+    </div>
+
     <div class="PopUpConnexion">
     <form action="index.php" method="post">
     <br>
@@ -53,10 +81,11 @@
 
     <input type="submit" value="Connexion">
     </form>
+    <br>
     <p id="mdpOublie">Mot de passe oublié ?</p>
     <p id="linkInscription">S'incrire maintenant</p>
     </div>
 <!-- Scripts -->
-<script type="text/javascript" src="../js/login_signup.js"></script>
+<script type="text/javascript" src="../js/pageConnexion.js"></script>
 </body>
 </html>
