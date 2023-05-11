@@ -15,6 +15,9 @@ h1 {
 }
 h3 {
     color: #F65151;
+    border-bottom: 1px solid #F65151;
+    width: 26%;
+    margin-left: 37%;
 }
 
 /* Header */
@@ -69,9 +72,8 @@ header {
     top: 25%;
     left: 35%;
     background-color: #FEF4F4;
-    box-shadow: 15px -10px 4px #2E2828;
-    border: solid;
-    border-radius: 30px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     z-index: 2;
     visibility: hidden;
     text-align: center;
@@ -81,18 +83,26 @@ header {
     position: fixed;
     width: 30%;
     min-width: 200px;
-    min-height: 300px;
+    min-height: 400px;
     top: 25%;
     left: 35%;
     background-color: #FEF4F4;
-    box-shadow: 15px -10px 4px #2E2828;
-    border: solid;
-    border-radius: 30px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     z-index: 2;
     visibility: hidden;
     text-align: center;
 }
 
+.formulaireInscription {
+    display: flex;
+    margin: 10px;
+    justify-content: space-evenly;
+}
+
+.formulaireConnexion{
+
+}
 /*  Fond gris */
 
 .PopUpBg{
@@ -108,14 +118,62 @@ header {
 
 /* Formulaire Connexion */
 
-label {
+.PopUpInscription input[type="text"],
+.PopUpInscription input[type="password"] {
     display: block;
-    font: 0.9rem 'Fira Sans', sans-serif;
+    box-sizing: border-box;
+    padding: 4px;
+    width: 90%;
+    margin: 5%;
+    height: 32px;
+    border: none;
+    background-color: #FEF4F4;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 0;
+    margin-top: 5px;
 }
 
-input[type='submit'],
-label {
-    margin-top: 1rem;
+.PopUpInscription .formulaireInscriptionLigneSeul input {
+    display: block;
+    box-sizing: border-box;
+    padding: 4px;
+    width: 75%;
+    margin-top: 5px;
+    margin-left: 12.5%;
+    height: 32px;
+    border: none;
+    background-color: #FEF4F4;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.PopUpConnexion input[type="text"],
+.PopUpConnexion input[type="password"] {
+    margin-top: 20px;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 50%;
+    margin-left: 25%;
+    height: 32px;
+    border: none;
+    background-color: #FEF4F4;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
 }
 
 input[type='submit'] {
@@ -131,6 +189,7 @@ input[type='submit'] {
 /* Formulaire lien */
 
 #mdpOublie {
+    margin-top: 20px;
     color: #F65151;
     font-size: 14px;
     cursor: pointer;
@@ -143,6 +202,7 @@ input[type='submit'] {
     cursor: pointer;
 }
 #linkConnexion {
+    margin-top: 20px;
     color: #F65151;
     font-size: 12px;
     cursor: pointer;

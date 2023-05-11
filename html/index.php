@@ -20,7 +20,7 @@
             </div>
             <div class="headerCentre">
             <h1>Loc'Auto</h1>
-            <img src="../img/logo_juste_voiture.png">
+            <img src="../img/logo_voiture_marron.png">
             </div>
             <div class="headerDroit">
                 <div id="headerConnexion"><p>Connexion</p></div>
@@ -32,6 +32,7 @@
             <p>Code couleur:
             <br>#2E2828<br>#503A3A<br>#F65151<br>#FEF4F4
             </p>
+            <p>Nom, Prénom, Adresse postale, Adresse Mail, Mdp, téléphone</p>
             <?php
 
             if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
@@ -45,48 +46,49 @@
     <div class="PopUpBg" id="PopUpBg">
     </div>
     <div class="PopUpInscription">
-    <form action="index.php" method="post">
-    <br>
-    <h3>S'inscrire</h3>
-    <div>
-    <label for="emailCreate">Email:</label>
-    <input type="email" id="emailCreate" name="emailCreate">
+        <form action="index.php" method="post">
+            <br>
+            <h3>Inscription</h3>
+            <div class="formulaireInscription">
+                <div class="formulaireInscriptionGauche">
+                    <input type="text" name="Nom" placeholder="Nom" />
+                    <input type="text" name="Téléphone" placeholder="Téléphone" minlength="10" required/>
+                </div>
+                <div class="formulaireInscriptionGauche">
+                    <input type="text" name="Prénom" placeholder="Prénom" />
+                    <input type="password" name="Profil" placeholder="Profil" />
+                </div>
+            </div>
+            <div class="formulaireInscriptionLigneSeul">
+                <input type="text" name="Groupe" placeholder="Entreprise ou Association" />
+                <input type="text" name="E-mail" placeholder="E-mail" />
+            </div>
+            <div class="formulaireInscription">
+                <div class="formulaireInscriptionDroit">
+                    <input type="password" name="password" placeholder="Mot de passe" minlength="8" required/>
+                </div>
+                <div class="formulaireInscriptionGauche">
+                    <input type="password" name="password" placeholder="Confirmer mot de passe" />
+                </div>
+            </div>
+            <input type="submit" value="Inscription">
+        </form>
+        <p id="linkConnexion">Se connecter</p>
     </div>
-
-    <div>
-        <label for="passCreate">Mot de passe:</label>
-        <input type="password" id="passCreate" name="passCreate"
-            minlength="8" required>
-    </div>
-
-    <input type="submit" value="Connexion">
-    </form>
-    <br>
-    <p id="linkConnexion">Se connecter</p>
-    </div>
-
-    </div>
-
     <div class="PopUpConnexion">
-    <form action="index.php" method="post">
-    <br>
-    <h3>Se connecter</h3>
-    <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-    </div>
-
-    <div>
-        <label for="pass">Mot de passe:</label>
-        <input type="password" id="pass" name="password"
-            minlength="8" required>
-    </div>
-
-    <input type="submit" value="Connexion">
-    </form>
-    <br>
-    <p id="mdpOublie">Mot de passe oublié ?</p>
-    <p id="linkInscription">S'incrire maintenant</p>
+        <form action="index.php" method="post">
+        <br>
+        <h3>Se connecter</h3>
+        <div class="formulaireConnexion">
+            <div class="formulaireConnexionCentre">
+                <input type="text" name="email" placeholder="E-mail" />
+                <input type="password" name="password" placeholder="Mot de passe" />
+            </div>
+        </div>
+            <input type="submit" value="Connexion">
+            </form>
+            <p id="mdpOublie">Mot de passe oublié ?</p>
+            <p id="linkInscription">S'incrire maintenant</p>
     </div>
 <!-- Scripts -->
 <script type="text/javascript" src="../js/pageConnexion.js"></script>
