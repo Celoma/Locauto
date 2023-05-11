@@ -17,7 +17,10 @@
                 <img src="../img/bouton_menu_ouvrir.png" class="navBarOpen">
                 <div class="navBar">
                 </div>
-                <img src="../img/logo_rouge_marron.png">
+            </div>
+            <div class="headerCentre">
+            <h1>Loc'Auto</h1>
+            <img src="../img/logo_juste_voiture.png">
             </div>
             <div class="headerDroit">
                 <div id="headerConnexion"><p>Connexion</p></div>
@@ -44,7 +47,7 @@
     <div class="PopUpInscription">
     <form action="index.php" method="post">
     <br>
-    <h1>S'inscrire</h1>
+    <h3>S'inscrire</h3>
     <div>
     <label for="emailCreate">Email:</label>
     <input type="email" id="emailCreate" name="emailCreate">
@@ -67,7 +70,7 @@
     <div class="PopUpConnexion">
     <form action="index.php" method="post">
     <br>
-    <h1>Se connecter</h1>
+    <h3>Se connecter</h3>
     <div>
     <label for="email">Email:</label>
     <input type="email" id="email" name="email">

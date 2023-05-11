@@ -8,8 +8,12 @@ body{
     background-color: #FEF4F4;
     font-family: Poppins;
 }
-
 h1 {
+    font-size: 40px;
+    margin: 10px;
+    color: #503A3A;
+}
+h3 {
     color: #F65151;
 }
 
@@ -27,10 +31,13 @@ header {
 }
 
 .headerGauche {
-    width: 100%;
+    width: 50%;
     display: flex;
 }
-
+.headerCentre {
+    width: 50%;
+    display: flex;
+}
 .headerDroit {
     display: flex;
 }
