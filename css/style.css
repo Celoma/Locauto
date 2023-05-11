@@ -48,4 +48,26 @@ header {
     cursor: pointer;
 }
 
+.PopUp {
+    position: fixed;
+    min-width: 60%;
+    height: 50%;
+    margin-left: 20%;
+    background-color: #FEF4F4;
+    box-shadow: 15px -10px 4px #2E2828;
+    border: solid;
+    border-radius: 30px;
+    z-index: 2;
+    visibility: hidden;
+}
 
+.PopUpBg{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: gray;
+    position: fixed;
+    opacity: 0.5;
+    top: 0;
+    visibility: hidden;
+}
