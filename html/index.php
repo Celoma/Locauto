@@ -2,14 +2,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
     <title>Loc'Auto</title>
 <body>
     <div class="Main">
         <header>
-            <img src="/img/bouton_menu_ouvrir.png" class="navBarOpen">
+            <img src="../img/bouton_menu_ouvrir.png" class="navBarOpen">
             <div class="navBar">
             </div>
             <div class="headerDroit"></div>
@@ -29,6 +29,6 @@
     <div class="PopUp">
     </div>
 <!-- Scripts -->
-<script type="text/javascript" src="/js/login_signup.js"></script>
+<script type="text/javascript" src="../js/login_signup.js"></script>
 </body>
 </html>
