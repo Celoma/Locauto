@@ -47,12 +47,11 @@ header {
 
 .accesProfil {
     height: 40px;
-    margin-top: 20px;
-    opacity: 0.6;
+    margin-top: 10px;
     margin-right: 20px;
+    padding: 10px;
     border-radius: 20px;
     cursor: pointer;
-    background-color: #FEF4F4;
 }
 
 header a {
@@ -60,7 +59,7 @@ header a {
 }
 
 .accesProfil:hover {
-    background-color: #503A3A;
+    background-color: #e02121;
 }
 
 /* Connexion et Login styles */

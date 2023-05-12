@@ -1,6 +1,16 @@
 <?php
     session_start();
     $id_session = session_id();
+/* *************************************** *
+ * bibliothèque de fonctions PHP *
+ * *************************************** */
+/* méthode générique de connexion à la BDD */
+function connexion() {
+require_once "acces.php";
+// connexion persistante
+$connexion = mysqli_connect(SERVEUR, LOGIN, MDP, BD) ;
+return $connexion;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,7 +36,7 @@
                 <?php 
                     if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
                         echo "<a href='profils.php'><h1>". $_POST['email'] ."</h1></a>
-                        <img src='../img/trois_points.png' class='accesProfil'>";
+                        <img src='../img/logo_compte.png' class='accesProfil'>";
                     } else {
                         echo "<div id='headerConnexion'><p>Connexion</p></div>
                         <div><p id='headerInscription'>Inscription</p></div>";
@@ -42,7 +52,6 @@
             </p>
             <p>Nom, Prénom, Adresse postale, Adresse Mail, Mdp, téléphone</p>
             <?php
-
             if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
                 echo $_POST['email'] . "<br>" . $_POST['password'];
             }

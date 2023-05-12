@@ -20,7 +20,6 @@ function connexionPopUp(){
 }
 
 function inscriptionPopUp(){
-    console.log("coucou");
     document.querySelector(".PopUpConnexion").style.visibility = 'Hidden';
     body.style.filter = 'blur(10px)';
     document.querySelector(".PopUpBg").style.visibility = 'Visible';
