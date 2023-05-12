@@ -74,13 +74,7 @@
                                 <li><a href='historique_achat'>Historique d'achat</a></li>
                                 <li><a href='deconnexion.php'>Déconnexion</a></li>
                             </ul>
-                        </div>
-                        
-                        
-                        
-                        
-                        
-                        ";
+                        </div>";
                     } else {
                         echo "<div id='headerConnexion'><p>Connexion</p></div>
                         <div><p id='headerInscription'>Inscription</p></div>";
