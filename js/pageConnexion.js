@@ -5,11 +5,14 @@ const PopUpBg = document.getElementById("PopUpBg");
 const linkInscription = document.getElementById("linkInscription");
 const linkConnexion = document.getElementById("linkConnexion");
 
+try {
 linkConnexion.addEventListener('click', connexionPopUp);
 linkInscription.addEventListener('click', inscriptionPopUp);
 connexion.addEventListener('click', connexionPopUp);
 inscription.addEventListener('click', inscriptionPopUp);
 PopUpBg.addEventListener('click', closeAll);
+} catch {}
+
 
 
 function connexionPopUp(){

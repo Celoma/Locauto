@@ -53,28 +53,66 @@ header {
     display: flex;
 }
 
-.speudo {
-    text-decoration: none;
-    font-size: 30px;
-    margin-top: 15px;
-    color: #503A3A;
-}
-
-.accesProfil {
-    height: 40px;
-    margin-top: 10px;
-    margin-right: 20px;
-    padding: 10px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
 header a {
     text-decoration: none;
 }
 
-.accesProfil:hover {
+.speudo {
+    text-decoration: none;
+    font-size: 30px;
+    padding: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    color: #503A3A;
+    border-radius: 5px;
+}
+
+.speudo:hover {
     background-color: #e02121;
+}
+
+.accesProfil {
+    height: 40px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.profilBar {
+    right: 0;
+    display: block;
+    background-color: #F65151;
+    height: 50px;
+}
+
+.profilBar ul {
+    top: 80px;
+    right: 0;
+    list-style-type:none;
+    display: none;
+    position: fixed;
+    background-color: #F65151;
+}
+
+.accesProfil:hover {
+    position: initial;
+    background-color: #e02121;
+}
+
+.profilBar:hover ul {
+    display: block;
+}
+
+.profilBar li a {
+    padding: 5px;
+    text-decoration: none;
+    color: #FEF4F4;
+}
+
+.profilBar li:hover {
+    transform: 0.2 ease;
+    background-color: #503A3A;
+    color: #FEF4F4;
 }
 
 /* Connexion et Login styles */
@@ -95,6 +133,9 @@ header a {
     cursor: pointer;
 }
 
+.BodyPage {
+    width: 100%;
+}
 /* Overlay de connexion et inscription */
 .PopUpConnexion {
     position: fixed;

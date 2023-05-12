@@ -1,6 +1,47 @@
 <?php
     session_start();
     $id_session = session_id();
+    include "../bdd/biblio.php";
+    $connexion = connexion();
+    if(isset($_SESSION['connected'])){
+        if($_SESSION['connected'] == 'false'){
+            session_reset();
+        }
+    } else {
+        $_SESSION['connected'] = "false";
+    }
+    if (isset($_POST['email']) && isset($_POST['password'])) {
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+        if (empty($email)) {
+            header("Location: index.php?error=User Name is required");
+            exit();
+        }else if(empty($pass)){
+            header("Location: index.php?error=Password is required");
+            exit();
+        }else{
+            $sql = "SELECT * FROM client WHERE mail='$email' AND mots_de_passe='$pass'";
+            $result = mysqli_query($connexion, $sql);
+            if (mysqli_num_rows($result) === 1) {
+                $row = mysqli_fetch_assoc($result);
+                if ($row['mail'] === $email && $row['mots_de_passe'] === $pass) {
+                    $_SESSION['email'] = $row['mail'];
+                    $_SESSION['nom'] = $row['nom'];
+                    $_SESSION['prenom'] = $row['prenom'];
+                    $_SESSION['id'] = $row['id_client'];
+                    $_SESSION['connected'] = "true";
+                    header("Location: index.php");
+                    exit();
+                }else{
+                    header("Location: index.php?error=Incorect User name or password");
+                    exit();
+                }
+            }else{
+                header("Location: index.php?error=Incorect User name or password");
+                exit();
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,25 +65,38 @@
             </div>
             <div class="headerDroit">
                 <?php
-                    if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
-                        echo "<a href='profils.php' class='speudo'>". $_POST['email'] ."</a>
-                        <img src='../img/logo_compte.png' class='accesProfil'>";
+                    if($_SESSION['connected'] == "true"){
+                        echo "<a href='profils.php' class='speudo'>". $_SESSION['nom'] . $_SESSION['prenom'] ."</a>
+                        <div class='profilBar'>
+                            <img src='../img/logo_compte.png' class='accesProfil'>
+                            <ul>
+                                <li><a href='profils.php'>Profils</a></li>
+                                <li><a href='historique_achat'>Historique d'achat</a></li>
+                                <li><a href='deconnexion.php'>Déconnexion</a></li>
+                            </ul>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        ";
                     } else {
                         echo "<div id='headerConnexion'><p>Connexion</p></div>
                         <div><p id='headerInscription'>Inscription</p></div>";
                     }
                 ?>
             </div>
-
         </header>
-        <div>
-            <p>Code couleur:
-            <br>#2E2828<br>#503A3A<br>#F65151<br>#FEF4F4
-            </p>
-            <p>Nom, Prénom, Adresse postale, Adresse Mail, Mdp, téléphone</p>
+        <div class="BodyPage">
             <?php
-            if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
-                echo $_POST['email'] . "<br>" . $_POST['password'];
+            if($_SESSION['connected'] === "true"){
+                echo "<p>" . $_SESSION['email'] . "<br>" .
+                $_SESSION['nom'] . "<br>" .
+                $_SESSION['prenom'] . "<br>" .
+                $_SESSION['id'] . "</p>";
+            } else {
+                echo $_SESSION['connected'];
             }
             ?>
         </div>
@@ -67,8 +121,6 @@
                     <select name="type_client" id="typeSelect" required>
                         <option value="" hidden selected>Choisissez votre profil</option>
                         <?php
-                            include "../bdd/biblio.php";
-                            $connexion = connexion();
                             $requete = "
                             SELECT *
                             FROM type_de_client";
@@ -119,6 +171,6 @@
             <p id="linkInscription">S'incrire maintenant</p>
     </div>
 <!-- Scripts -->
-<script type="text/javascript" src="../js/pageConnexion.js"></script>
+<script type='text/javascript' src='../js/pageConnexion.js'></script>
 </body>
 </html>
