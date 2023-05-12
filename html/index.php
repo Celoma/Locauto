@@ -14,7 +14,7 @@
     <div class="Main">
         <header>
             <div class="headerGauche">
-                <img src="../img/bouton_menu_ouvrir.png" class="navBarOpen">
+                <img src="" class="navBarOpen">
                 <div class="navBar">
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="headerDroit">
                 <?php
                     if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
-                        echo "<a href='profils.php'><h2>". $_POST['email'] ."</h2></a>
+                        echo "<a href='profils.php' class='speudo'>". $_POST['email'] ."</a>
                         <img src='../img/logo_compte.png' class='accesProfil'>";
                     } else {
                         echo "<div id='headerConnexion'><p>Connexion</p></div>
@@ -45,66 +45,64 @@
                 echo $_POST['email'] . "<br>" . $_POST['password'];
             }
             ?>
-            <?php
-                    include "../bdd/biblio.php";
-                    /* on crée une connexion et on la stocke pour toute
-                    l'exécution du code ci-dessous */
-                    $connexion = connexion();
-                    /* on écrit la requête SQL */
-                    $requete_test = "
-                    SELECT *
-                    FROM categories
-                    ";
-                    /* on exécute la "query" correspondante sur MySQL */
-                    $resultat_test = mysqli_query($connexion, $requete_test);
-                    $compteur = 0;
-                    while ($ligne = mysqli_fetch_object($resultat_test)) {
-                    $compteur += 1;
-                    }
-                    $testConnexion = $compteur . " lignes dans la table categories";
-                    /*
-                    * on inclut la page HTML en fin de procédure, pour que les variables
-                    * qui y figurent aient été créées auparavant et soient remplacées
-                    * par leur valeur... L'exécution de index.php va créer et compléter
-                    * la page et l'envoyer au navigateur Web.
-                    */
-                ?>
         </div>
         <footer>
         </footer>
     </div>
     <div class="PopUpBg" id="PopUpBg">
     </div>
+
+
     <div class="PopUpInscription">
-        <form action="index.php" method="post">
+        <form name="inscription" action="index.php" method="post">
             <br>
             <h3>Inscription</h3>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionGauche">
-                    <input type="text" name="Nom" placeholder="Nom" />
+                    <input type="text" name="Nom" placeholder="Nom" required/>
                     <input type="text" name="Téléphone" placeholder="Téléphone" minlength="10" required/>
                 </div>
                 <div class="formulaireInscriptionGauche">
-                    <input type="text" name="Prénom" placeholder="Prénom" />
-                    <input type="password" name="Profil" placeholder="Profil" />
+                    <input type="text" name="Prénom" placeholder="Prénom" required/>
+                    <select name="type_client" id="typeSelect" required>
+                        <option value="" hidden selected>Choisissez votre profil</option>
+                        <?php
+                            include "../bdd/biblio.php";
+                            $connexion = connexion();
+                            $requete = "
+                            SELECT *
+                            FROM type_de_client";
+                            $resultat = mysqli_query($connexion, $requete);
+                            $i = 1;
+                            while($ligne = mysqli_fetch_array($resultat)){
+                                if($i > 1){
+                                    echo "<option value=" .$i . ">" . $ligne['libelle'] . "</option>";
+                                }
+                                $i+=1;
+                            }
+                        ?>
+                    </select>
                 </div>
             </div>
             <div class="formulaireInscriptionLigneSeul">
-                <input type="text" name="Groupe" placeholder="Entreprise ou Association" />
-                <input type="text" name="E-mail" placeholder="E-mail" />
+                <input type="text" name="Groupe" placeholder="Entreprise ou Association" required/>
+                <input type="email" name="E-mail" placeholder="E-mail" required/>
             </div>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionDroit">
-                    <input type="password" name="password" placeholder="Mot de passe" minlength="8" required/>
+                    <input type="password" name="password" id="mdp1" onkeyup="checkPass()" placeholder="Mot de passe" minlength="8" required/>
                 </div>
                 <div class="formulaireInscriptionGauche">
-                    <input type="password" name="password" placeholder="Confirmer mot de passe" />
+                    <input type="password" id="mdp2" placeholder="Confirmer mot de passe" onkeyup="checkPass()"  required/>
+                    <div id="divcomp2">Correct</div><div id="divcomp">Incorrect</div>
                 </div>
             </div>
             <input type="submit" value="Inscription">
         </form>
         <p id="linkConnexion">Se connecter</p>
     </div>
+
+
     <div class="PopUpConnexion">
         <form action="index.php" method="post">
         <br>
