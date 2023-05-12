@@ -13,6 +13,10 @@ h1 {
     margin: 10px;
     color: #503A3A;
 }
+h2 {
+    text-decoration: none;
+}
+
 h3 {
     color: #F65151;
     border-bottom: 1px solid #F65151;
@@ -118,8 +122,8 @@ header a {
 }
 
 .formulaireConnexion{
-
 }
+
 /*  Fond gris */
 
 .PopUpBg{

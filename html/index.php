@@ -1,16 +1,6 @@
 <?php
     session_start();
     $id_session = session_id();
-/* *************************************** *
- * bibliothèque de fonctions PHP *
- * *************************************** */
-/* méthode générique de connexion à la BDD */
-function connexion() {
-require_once "acces.php";
-// connexion persistante
-$connexion = mysqli_connect(SERVEUR, LOGIN, MDP, BD) ;
-return $connexion;
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,16 +23,15 @@ return $connexion;
             <img src="../img/logo_voiture_marron.png">
             </div>
             <div class="headerDroit">
-                <?php 
+                <?php
                     if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
-                        echo "<a href='profils.php'><h1>". $_POST['email'] ."</h1></a>
+                        echo "<a href='profils.php'><h2>". $_POST['email'] ."</h2></a>
                         <img src='../img/logo_compte.png' class='accesProfil'>";
                     } else {
                         echo "<div id='headerConnexion'><p>Connexion</p></div>
                         <div><p id='headerInscription'>Inscription</p></div>";
                     }
                 ?>
-
             </div>
 
         </header>
@@ -56,6 +45,30 @@ return $connexion;
                 echo $_POST['email'] . "<br>" . $_POST['password'];
             }
             ?>
+            <?php
+                    include "../bdd/biblio.php";
+                    /* on crée une connexion et on la stocke pour toute
+                    l'exécution du code ci-dessous */
+                    $connexion = connexion();
+                    /* on écrit la requête SQL */
+                    $requete_test = "
+                    SELECT *
+                    FROM categories
+                    ";
+                    /* on exécute la "query" correspondante sur MySQL */
+                    $resultat_test = mysqli_query($connexion, $requete_test);
+                    $compteur = 0;
+                    while ($ligne = mysqli_fetch_object($resultat_test)) {
+                    $compteur += 1;
+                    }
+                    $testConnexion = $compteur . " lignes dans la table categories";
+                    /*
+                    * on inclut la page HTML en fin de procédure, pour que les variables
+                    * qui y figurent aient été créées auparavant et soient remplacées
+                    * par leur valeur... L'exécution de index.php va créer et compléter
+                    * la page et l'envoyer au navigateur Web.
+                    */
+                ?>
         </div>
         <footer>
         </footer>

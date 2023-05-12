@@ -3,5 +3,5 @@
 define("SERVEUR","localhost");
 define("LOGIN", "locauto");
 define("MDP", "abcdefg");
-define("BD", "locauto");
+define("BD", "loc'auto");
 ?>
