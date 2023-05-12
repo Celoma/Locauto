@@ -3,18 +3,14 @@
     $id_session = session_id();
     include "../bdd/biblio.php";
     $connexion = connexion();
-    if(isset($_SESSION['connected'])){
-        if($_SESSION['connected'] == 'false'){
-            session_reset();
-        }
-    } else {
+    if(!isset($_SESSION['connected'])){
         $_SESSION['connected'] = "false";
     }
     if (isset($_POST['email']) && isset($_POST['password'])) {
-        $email = $_POST['email'];
-        $pass = $_POST['password'];
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['pass'] = $_POST['password'];
         if (empty($email)) {
-            header("Location: index.php?error=User Name is required");
+            header("Location: index.php?error=E-mail is required");
             exit();
         }else if(empty($pass)){
             header("Location: index.php?error=Password is required");
@@ -33,11 +29,11 @@
                     header("Location: index.php");
                     exit();
                 }else{
-                    header("Location: index.php?error=Incorect User name or password");
+                    header("Location: index.php?error=Incorect E-mail or password");
                     exit();
                 }
             }else{
-                header("Location: index.php?error=Incorect User name or password");
+                header("Location: index.php?error=Incorect E-mail or password");
                 exit();
             }
         }
@@ -52,6 +48,8 @@
 </head>
     <title>Loc'Auto</title>
 <body>
+    <input type="hidden" id="mdp" value=<?php echo $_SESSION['pass']; ?>/>
+    <input type="hidden" id="email" value=<?php echo $_SESSION['email']; ?>/>
     <div class="Main">
         <header>
             <div class="headerGauche">
@@ -66,11 +64,11 @@
             <div class="headerDroit">
                 <?php
                     if($_SESSION['connected'] == "true"){
-                        echo "<a href='profils.php' class='speudo'>". $_SESSION['nom'] . $_SESSION['prenom'] ."</a>
+                        echo "<a href='profil.php' class='speudo'>". $_SESSION['nom'] ." " . $_SESSION['prenom'] ."</a>
                         <div class='profilBar'>
                             <img src='../img/logo_compte.png' class='accesProfil'>
                             <ul>
-                                <li><a href='profils.php'>Profils</a></li>
+                                <li><a href='profil.php'>Profil</a></li>
                                 <li><a href='historique_achat'>Historique d'achat</a></li>
                                 <li><a href='deconnexion.php'>Déconnexion</a></li>
                             </ul>
@@ -102,9 +100,10 @@
 
 
     <div class="PopUpInscription">
-        <form name="inscription" action="index.php" method="post">
+        <form name="inscription" action="" method="post">
             <br>
             <h3>Inscription</h3>
+            <div class="sousTitre"></div>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionGauche">
                     <input type="text" name="Nom" placeholder="Nom" required/>
@@ -140,7 +139,7 @@
                 </div>
                 <div class="formulaireInscriptionGauche">
                     <input type="password" id="mdp2" placeholder="Confirmer mot de passe" onkeyup="checkPass()"  required/>
-                    <div id="divcomp2">Correct</div><div id="divcomp">Incorrect</div>
+                    <div id="divcomp">Correct</div><div id="divcomp2">Incorrect</div>
                 </div>
             </div>
             <input type="submit" value="Inscription">
@@ -150,15 +149,17 @@
 
 
     <div class="PopUpConnexion">
-        <form action="index.php" method="post">
+        <form action="" method="post">
         <br>
-        <h3>Se connecter</h3>
+        <h3>Connexion</h3>
+        <div class="sousTitre"></div>
         <div class="formulaireConnexion">
             <div class="formulaireConnexionCentre">
-                <input type="text" name="email" placeholder="E-mail" />
-                <input type="password" name="password" placeholder="Mot de passe" />
+                <input type="text" name="email" id="emailEntré" placeholder="E-mail" />
+                <input type="password" name="password" id="mdpEntré" placeholder="Mot de passe" />
             </div>
         </div>
+            <div id="divcomp3">E-mail ou mot de passe incorrect</div>
             <input type="submit" value="Connexion">
             </form>
             <p id="mdpOublie">Mot de passe oublié ?</p>

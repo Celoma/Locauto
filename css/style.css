@@ -19,9 +19,7 @@ h2 {
 
 h3 {
     color: #F65151;
-    border-bottom: 1px solid #f65151;
-    width: 26%;
-    margin-left: 37%;
+    font-size: 1.4em;
 }
 
 /* Header */
@@ -29,6 +27,7 @@ header {
     display: flex;
     height: 80px;
     background-color: #F65151;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .navBarOpen {
@@ -69,7 +68,7 @@ header a {
 }
 
 .speudo:hover {
-    background-color: #e02121;
+    background-color: #16a085;
 }
 
 .accesProfil {
@@ -78,11 +77,8 @@ header a {
     cursor: pointer;
 }
 
-.profilBar {
-    right: 0;
-    display: block;
-    background-color: #F65151;
-    height: 50px;
+.accesProfil:hover {
+    background-color: #16a085;
 }
 
 .profilBar ul {
@@ -91,28 +87,42 @@ header a {
     list-style-type:none;
     display: none;
     position: fixed;
-    background-color: #F65151;
-}
-
-.accesProfil:hover {
-    position: initial;
-    background-color: #e02121;
 }
 
 .profilBar:hover ul {
     display: block;
 }
 
-.profilBar li a {
-    padding: 5px;
-    text-decoration: none;
+.profilBar a {
     color: #FEF4F4;
+    font-size: 1vw;
+    padding: 5px 10px 5px 10px;
+    margin-right: 0;
+    text-decoration: none;
 }
 
 .profilBar li:hover {
     transform: 0.2 ease;
-    background-color: #503A3A;
+    background-color: #16a085;
     color: #FEF4F4;
+}
+
+.profilBar li {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: #F65151;
+    border-top: 1px solid #AAA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilBar li a {
+    width: 100%;
+    height: 100%;
+}
+
+ul li:last-child {
+	border-radius: 0 0 0 8px ;
 }
 
 /* Connexion et Login styles */
@@ -150,6 +160,7 @@ header a {
     z-index: 2;
     display: none;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .PopUpInscription {
@@ -165,8 +176,13 @@ header a {
     z-index: 2;
     display: none;
     text-align: center;
+    padding-bottom: 20px;
 }
 
+.sousTitre {
+    margin: 0 35% 0 35%;
+    border: #F65151 1px solid;
+}
 .formulaireInscription {
     display: flex;
     margin: 10px;
@@ -188,11 +204,10 @@ header a {
 /* Formulaire Connexion */
 
 .PopUpInscription input[type="text"],
-.PopUpInscription input[type="password"],
-select {
+.PopUpInscription input[type="password"] {
     display: block;
     box-sizing: border-box;
-    padding: 4px;
+    padding: 10px;
     width: 90%;
     margin: 5%;
     height: 32px;
@@ -201,7 +216,24 @@ select {
     border-bottom: 1px solid #AAA;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+select {
+    display: block;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 90%;
+    margin: 5%;
+    height: 32px;
+    border: none;
+    background-color: #FEF4F4;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
     margin-bottom: 0;
     margin-top: 5px;
 }
@@ -209,7 +241,7 @@ select {
 .PopUpInscription .formulaireInscriptionLigneSeul input {
     display: block;
     box-sizing: border-box;
-    padding: 4px;
+    padding: 10px;
     width: 75%;
     margin-top: 5px;
     margin-left: 12.5%;
@@ -219,7 +251,7 @@ select {
     border-bottom: 1px solid #AAA;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .PopUpConnexion input[type="text"],
@@ -228,7 +260,7 @@ select {
     display: block;
     box-sizing: border-box;
     margin-bottom: 20px;
-    padding: 4px;
+    padding: 10px;
     width: 50%;
     margin-left: 25%;
     height: 32px;
@@ -237,7 +269,7 @@ select {
     border-bottom: 1px solid #AAA;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 input[type="text"]:focus,
@@ -248,13 +280,21 @@ select:focus{
 }
 
 input[type='submit'] {
+    font-family: Poppins;
     margin-top: 20px;
     padding:5px 15px;
-    background:#ccc;
+    background:#F65151;
+    color: #FEF4F4;
     border:0 none;
     cursor:pointer;
+    font-weight: bold;
+    font-size: 20px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+}
+
+input[type='submit']:hover {
+    color: #503A3A;
 }
 
 select:invalid{
@@ -285,11 +325,14 @@ select:invalid{
 
 #divcomp {
     display: none;
-    color: red;
+    color: green;
 }
 
 #divcomp2{
     visibility: hidden;
-    color: green;
-
+    color: red;
+}
+#divcomp3{
+    visibility: hidden;
+    color: red;
 }

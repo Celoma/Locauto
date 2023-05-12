@@ -14,6 +14,12 @@ PopUpBg.addEventListener('click', closeAll);
 } catch {}
 
 
+if(new URLSearchParams(window.location.search).get('error') != null){
+    document.getElementById("mdpEntré").value = document.getElementById("mdp").value.slice(0, -1);
+    document.getElementById("emailEntré").value = document.getElementById("email").value.slice(0, -1);
+    document.getElementById("divcomp3").style.visibility = 'visible';
+    connexionPopUp();
+}
 
 function connexionPopUp(){
     document.querySelector(".PopUpInscription").style.display = 'None';
@@ -32,9 +38,12 @@ function inscriptionPopUp(){
 
 function closeAll(){
     body.style.filter = 'blur(0px)';
+    document.getElementById("mdpEntré").value = null;
+    document.getElementById("emailEntré").value = null;
     document.querySelector(".PopUpBg").style.display = 'None';
     document.querySelector(".PopUpConnexion").style.display = 'None';
     document.querySelector(".PopUpInscription").style.display = 'None';
+    document.getElementById("divcomp3").style.visibility = 'hidden';
 }
 
 
@@ -44,7 +53,7 @@ console.log("salam")
 var champA = document.getElementById("mdp1").value;
 var champB = document.getElementById("mdp2").value;
 var div_comp = document.getElementById("divcomp");
-    if(champA != champB)
+    if(champA == champB)
         {
         document.getElementById("divcomp2").style.display = 'hidden';
         document.getElementById("divcomp2").style.display = 'none';
