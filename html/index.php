@@ -74,8 +74,8 @@
                             </ul>
                         </div>";
                     } else {
-                        echo "<div id='headerConnexion'><p>Connexion</p></div>
-                        <div><p id='headerInscription'>Inscription</p></div>";
+                        echo "<div><p id='headerInscription'>Inscription</p></div>
+                        <div id='headerConnexion'><p>Connexion</p></div>";
                     }
                 ?>
             </div>
