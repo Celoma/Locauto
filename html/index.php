@@ -6,14 +6,18 @@
     if(!isset($_SESSION['connected'])){
         $_SESSION['connected'] = "false";
     }
-    if (isset($_POST['email']) && isset($_POST['password'])) {
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['pass'] = $_POST['password'];
+
+    #Fonction vérification pour connecter l'utilisateur à un compte
+    if (isset($_POST['emailConnexion']) && isset($_POST['passwordConnexion'])) {
+        $_SESSION['email'] = $_POST['emailConnexion'];
+        $_SESSION['pass'] = $_POST['passwordConnexion'];
+        $email = $_SESSION['email'];
+        $pass = $_SESSION['pass'];
         if (empty($email)) {
-            header("Location: index.php?error=E-mail is required");
+            header("Location: index.php?error=Connection denied");
             exit();
         }else if(empty($pass)){
-            header("Location: index.php?error=Password is required");
+            header("Location: index.php?error=Connection denied");
             exit();
         }else{
             $sql = "SELECT * FROM client WHERE mail='$email' AND mots_de_passe='$pass'";
@@ -29,14 +33,20 @@
                     header("Location: index.php");
                     exit();
                 }else{
-                    header("Location: index.php?error=Incorect E-mail or password");
+                    header("Location: index.php?error=Connection denied");
                     exit();
                 }
             }else{
-                header("Location: index.php?error=Incorect E-mail or password");
+                header("Location: index.php?error=Connection denied");
                 exit();
             }
         }
+    }
+
+    #Fonction pour que l'utilisateur crée un compte
+    if (isset($_POST['email'])){
+        header("Location: index.php?error=Inscription denied");
+        exit();
     }
 ?>
 <!DOCTYPE html>
@@ -48,8 +58,12 @@
 </head>
     <title>Loc'Auto</title>
 <body>
-    <input type="hidden" id="mdp" value=<?php echo $_SESSION['pass']; ?>/>
-    <input type="hidden" id="email" value=<?php echo $_SESSION['email']; ?>/>
+
+    <!-- Remettre les valeurs des formulaires s'ils sont mal renseignés -->
+    <input type="hidden" id="mdp" value=<?php if(isset($_SESSION['pass'])){echo $_SESSION['pass'];}  ?>/>
+    <input type="hidden" id="email" value=<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} ?>/>
+
+
     <div class="Main">
         <header>
             <div class="headerGauche">
@@ -88,7 +102,8 @@
                 $_SESSION['prenom'] . "<br>" .
                 $_SESSION['id'] . "</p>";
             } else {
-                echo $_SESSION['connected'];
+                if(isset($_POST['passwordConnexion']))
+                echo 'fdp';
             }
             ?>
         </div>
@@ -106,11 +121,11 @@
             <div class="sousTitre"></div>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionGauche">
-                    <input type="text" name="Nom" placeholder="Nom" required/>
-                    <input type="text" name="Téléphone" placeholder="Téléphone" minlength="10" required/>
+                    <input type="text" name="nom" placeholder="Nom" required/>
+                    <input type="text" name="telephone" placeholder="Téléphone" minlength="10" required/>
                 </div>
                 <div class="formulaireInscriptionGauche">
-                    <input type="text" name="Prénom" placeholder="Prénom" required/>
+                    <input type="text" name="prenom" placeholder="Prénom" required/>
                     <select name="type_client" id="typeSelect" required>
                         <option value="" hidden selected>Choisissez votre profil</option>
                         <?php
@@ -130,8 +145,8 @@
                 </div>
             </div>
             <div class="formulaireInscriptionLigneSeul">
-                <input type="text" name="Groupe" placeholder="Entreprise ou Association" required/>
-                <input type="email" name="E-mail" placeholder="E-mail" required/>
+                <input type="text" name="groupe" placeholder="Entreprise ou Association" required/>
+                <input type="email" name="email" placeholder="E-mail" required/>
             </div>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionDroit">
@@ -142,6 +157,7 @@
                     <div id="divcomp">Correct</div><div id="divcomp2">Incorrect</div>
                 </div>
             </div>
+            <div id="divcomp4">Veuillez compléter tous les champs correctement</div>
             <input type="submit" value="Inscription">
         </form>
         <p id="linkConnexion">Se connecter</p>
@@ -155,8 +171,8 @@
         <div class="sousTitre"></div>
         <div class="formulaireConnexion">
             <div class="formulaireConnexionCentre">
-                <input type="text" name="email" id="emailEntré" placeholder="E-mail" />
-                <input type="password" name="password" id="mdpEntré" placeholder="Mot de passe" />
+                <input type="text" name="emailConnexion" id="emailEntré" placeholder="E-mail" />
+                <input type="password" name="passwordConnexion" id="mdpEntré" placeholder="Mot de passe" />
             </div>
         </div>
             <div id="divcomp3">E-mail ou mot de passe incorrect</div>

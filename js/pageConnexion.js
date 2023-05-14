@@ -13,12 +13,14 @@ inscription.addEventListener('click', inscriptionPopUp);
 PopUpBg.addEventListener('click', closeAll);
 } catch {}
 
-
-if(new URLSearchParams(window.location.search).get('error') != null){
+console.log(new URLSearchParams(window.location.search).get('error'));
+if(new URLSearchParams(window.location.search).get('error') == "Connection denied"){
     document.getElementById("mdpEntré").value = document.getElementById("mdp").value.slice(0, -1);
     document.getElementById("emailEntré").value = document.getElementById("email").value.slice(0, -1);
     document.getElementById("divcomp3").style.visibility = 'visible';
     connexionPopUp();
+} else if(new URLSearchParams(window.location.search).get('error') == "Inscription denied") {
+    inscriptionPopUp();
 }
 
 function connexionPopUp(){
@@ -35,7 +37,7 @@ function inscriptionPopUp(){
     document.querySelector(".PopUpInscription").style.display = 'block';
 }
 
-
+/* Ferme les popup inscription et connexion */
 function closeAll(){
     body.style.filter = 'blur(0px)';
     document.getElementById("mdpEntré").value = null;
@@ -46,12 +48,12 @@ function closeAll(){
     document.getElementById("divcomp3").style.visibility = 'hidden';
 }
 
-
+/* Check Password during inscription if they are the same */
 function checkPass()
 {
-console.log("salam")
-var champA = document.getElementById("mdp1").value;
-var champB = document.getElementById("mdp2").value;
+let champA = document.getElementById("mdp1").value;
+let champB = document.getElementById("mdp2").value;
+
 var div_comp = document.getElementById("divcomp");
     if(champA == champB)
         {
