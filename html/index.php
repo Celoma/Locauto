@@ -45,8 +45,53 @@
 
     #Fonction pour que l'utilisateur crée un compte
     if (isset($_POST['email'])){
-        header("Location: index.php?error=Inscription denied");
-        exit();
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+        $tel = $_POST['telephone'];
+        $cp = $_POST['adressePostale'];
+        $client_type = $_POST['type_client'];
+        $prenom = $_POST['prenom'];
+        $nom = $_POST['nom'];
+
+        if($_POST['password'] != $_POST['verifypassword']){
+            header("Location: index.php?error=Inscription denied&cause=Les deux mots de passes doivent être identiques");
+            exit();
+        } else if($_POST['type_client'] > 2 & $_POST['groupe'] == null) {
+            header("Location: index.php?error=Inscription denied&cause=Tous les champs ne sont pas compléter");
+            exit();
+        } else {
+            $sql = "SELECT * FROM client WHERE mail='$email'";
+            $result = mysqli_query($connexion, $sql);
+            if (mysqli_num_rows($result) != 0) {
+                header("Location: index.php?error=Inscription denied&cause=E-mail déjà utilisé");
+                exit();
+            } else {
+                $sql = "INSERT INTO client(nom, prenom, adresse, mail, mots_de_passe, telephone, id_type_de_client) 
+                VALUES ('$nom', '$prenom', '$cp', '$email', '$pass', '$tel', '$client_type');";
+                $result = mysqli_query($connexion, $sql);
+
+                $sql = "SELECT * FROM client WHERE mail='$email' AND mots_de_passe='$pass'";
+                $result = mysqli_query($connexion, $sql);
+                if (mysqli_num_rows($result) === 1) {
+                    $row = mysqli_fetch_assoc($result);
+                    if ($row['mail'] === $email && $row['mots_de_passe'] === $pass) {
+                        $_SESSION['email'] = $row['mail'];
+                        $_SESSION['nom'] = $row['nom'];
+                        $_SESSION['prenom'] = $row['prenom'];
+                        $_SESSION['id'] = $row['id_client'];
+                        $_SESSION['connected'] = "true";
+                        header("Location: index.php");
+                        exit();
+                    } else {
+                        header("Location: index.php?error=Inscription denied&cause=Une erreur est survenue");
+                        exit();
+                    }
+                } else {
+                    header("Location: index.php?error=Inscription denied&cause=E-mail déjà utilisé");
+                    exit();
+                }
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -101,9 +146,6 @@
                 $_SESSION['nom'] . "<br>" .
                 $_SESSION['prenom'] . "<br>" .
                 $_SESSION['id'] . "</p>";
-            } else {
-                if(isset($_POST['passwordConnexion']))
-                echo 'fdp';
             }
             ?>
         </div>
@@ -126,7 +168,7 @@
                 </div>
                 <div class="formulaireInscriptionGauche">
                     <input type="text" name="prenom" placeholder="Prénom" required/>
-                    <select name="type_client" id="typeSelect" required>
+                    <select name="type_client" id="typeSelect" onChange='InscriptionClientSpeciaux()' required>
                         <option value="" hidden selected>Choisissez votre profil</option>
                         <?php
                             $requete = "
@@ -145,19 +187,20 @@
                 </div>
             </div>
             <div class="formulaireInscriptionLigneSeul">
-                <input type="text" name="groupe" placeholder="Entreprise ou Association" required/>
+                <input type="text" name="groupe" id='groupe' placeholder=""/>
                 <input type="email" name="email" placeholder="E-mail" required/>
+                <input type="text" name="adressePostale" placeholder="Adresse postale" required/>
             </div>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionDroit">
                     <input type="password" name="password" id="mdp1" onkeyup="checkPass()" placeholder="Mot de passe" minlength="8" required/>
                 </div>
                 <div class="formulaireInscriptionGauche">
-                    <input type="password" id="mdp2" placeholder="Confirmer mot de passe" onkeyup="checkPass()"  required/>
+                    <input type="password" name="verifypassword" id="mdp2" placeholder="Confirmer mot de passe" onkeyup="checkPass()"  required/>
                     <div id="divcomp">Correct</div><div id="divcomp2">Incorrect</div>
                 </div>
             </div>
-            <div id="divcomp4">Veuillez compléter tous les champs correctement</div>
+            <p id="divcomp4"></p>
             <input type="submit" value="Inscription">
         </form>
         <p id="linkConnexion">Se connecter</p>

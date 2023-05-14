@@ -19,10 +19,11 @@ if(new URLSearchParams(window.location.search).get('error') == "Connection denie
     document.getElementById("emailEntré").value = document.getElementById("email").value.slice(0, -1);
     document.getElementById("divcomp3").style.visibility = 'visible';
     connexionPopUp();
-} else if(new URLSearchParams(window.location.search).get('error') == "Inscription denied") {
+} else if(new URLSearchParams(window.location.search).get('error') == "Inscription denied"){
+    document.getElementById("divcomp4").innerHTML = new URLSearchParams(window.location.search).get('cause');
+    document.getElementById("divcomp4").style.visibility = 'visible';
     inscriptionPopUp();
 }
-
 function connexionPopUp(){
     document.querySelector(".PopUpInscription").style.display = 'None';
     body.style.filter = 'blur(10px)';
@@ -42,10 +43,15 @@ function closeAll(){
     body.style.filter = 'blur(0px)';
     document.getElementById("mdpEntré").value = null;
     document.getElementById("emailEntré").value = null;
+
     document.querySelector(".PopUpBg").style.display = 'None';
     document.querySelector(".PopUpConnexion").style.display = 'None';
     document.querySelector(".PopUpInscription").style.display = 'None';
+
+    document.getElementById("divcomp").style.visibility = 'hidden';
+    document.getElementById("divcomp2").style.visibility = 'hidden';
     document.getElementById("divcomp3").style.visibility = 'hidden';
+    document.getElementById("divcomp4").style.visibility = 'hidden';
 }
 
 /* Check Password during inscription if they are the same */
@@ -60,11 +66,26 @@ var div_comp = document.getElementById("divcomp");
         document.getElementById("divcomp2").style.display = 'hidden';
         document.getElementById("divcomp2").style.display = 'none';
         document.getElementById("divcomp").style.display = 'block';
+        document.getElementById("divcomp").style.display = 'visible';
         }
     else
         {
         document.getElementById("divcomp").style.display = 'none';
+        document.getElementById("divcomp").style.display = 'hidden';
         document.getElementById("divcomp2").style.display = 'block';
         document.getElementById("divcomp2").style.visibility = 'visible';
         }
+}
+
+/* Selection type_client Nom du group */
+function InscriptionClientSpeciaux() {
+    if(document.getElementById("typeSelect").value == 3){
+        document.getElementsByName("groupe")[0].placeholder="Nom de l'entreprise";
+        document.getElementsByName("groupe")[0].style.display='block';
+        } else if (document.getElementById("typeSelect").value == 4){
+        document.getElementsByName("groupe")[0].placeholder="Nom de l'association";
+        document.getElementsByName("groupe")[0].style.display='block';
+    } else {
+        document.getElementsByName("groupe")[0].style.display='none';
+    }
 }

@@ -345,3 +345,7 @@ select:invalid{
     visibility: hidden;
     color: red;
 }
+
+#groupe {
+    display: none;
+}
