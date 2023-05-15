@@ -53,6 +53,16 @@
         $prenom = $_POST['prenom'];
         $nom = $_POST['nom'];
 
+        $_SESSION['emailInscription']=$_POST['email'];
+        $_SESSION['passwordInscription']=$_POST['password'];
+        $_SESSION['verifypasswordInscription']=$_POST['verifypassword'];
+        $_SESSION['telephoneInscription']=$_POST['telephone'];
+        $_SESSION['adressePostaleInscription']=$_POST['adressePostale'];
+        $_SESSION['typeclientInscription']=$_POST['type_client'];
+        $_SESSION['prenomInscription']=$_POST['prenom'];
+        $_SESSION['nomInscription']=$_POST['nom'];
+        $_SESSION['groupInscription']=$_POST['groupe'];
+
         if($_POST['password'] != $_POST['verifypassword']){
             header("Location: index.php?error=Inscription denied&cause=Les deux mots de passes doivent être identiques");
             exit();
@@ -66,10 +76,14 @@
                 header("Location: index.php?error=Inscription denied&cause=E-mail déjà utilisé");
                 exit();
             } else {
-                $sql = "INSERT INTO client(nom, prenom, adresse, mail, mots_de_passe, telephone, id_type_de_client) 
-                VALUES ('$nom', '$prenom', '$cp', '$email', '$pass', '$tel', '$client_type');";
-                $result = mysqli_query($connexion, $sql);
-
+                try{
+                    $sql = "INSERT INTO client (nom, prenom, adresse, mail, mots_de_passe, telephone, id_type_de_client)
+                    VALUES ('$nom', '$prenom', '$cp', '$email', '$pass', '$tel', '$client_type');";
+                    mysqli_query($connexion, $sql);
+                } catch(Exception $e){
+                    header("Location: index.php?error=Inscription denied&cause=Une erreur est survenue, n'utilisé pas ' s'il vous plait");
+                    exit();
+                }
                 $sql = "SELECT * FROM client WHERE mail='$email' AND mots_de_passe='$pass'";
                 $result = mysqli_query($connexion, $sql);
                 if (mysqli_num_rows($result) === 1) {
@@ -108,7 +122,15 @@
     <input type="hidden" id="mdp" value=<?php if(isset($_SESSION['pass'])){echo $_SESSION['pass'];}  ?>/>
     <input type="hidden" id="email" value=<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} ?>/>
 
-
+    <input type="hidden" id="nomInscriptionHide" value=<?php if(isset($_SESSION['nomInscription'])){echo $_SESSION['nomInscription'];}  ?>/>
+    <input type="hidden" id="emailInscriptionHide" value=<?php if(isset($_SESSION['emailInscription'])){echo $_SESSION['emailInscription'];} ?>/>
+    <input type="hidden" id="telephoneInscriptionHide" value=<?php if(isset($_SESSION['telephoneInscription'])){echo $_SESSION['telephoneInscription'];}  ?>/>
+    <input type="hidden" id="prenomInscriptionHide" value=<?php if(isset($_SESSION['prenomInscription'])){echo $_SESSION['prenomInscription'];} ?>/>
+    <input type="hidden" id="typeclientInscriptionHide" value=<?php if(isset($_SESSION['typeclientInscription'])){echo $_SESSION['typeclientInscription'];}  ?>/>
+    <input type="hidden" id="groupInscriptionHide" value=<?php if(isset($_SESSION['groupInscription'])){echo $_SESSION['groupInscription'];} ?>/>
+    <input type="hidden" id="adressePostaleInscriptionHide" value=<?php if(isset($_SESSION['adressePostaleInscription'])){echo $_SESSION['adressePostaleInscription'];}  ?>/>
+    <input type="hidden" id="passwordInscriptionHide" value=<?php if(isset($_SESSION['passwordInscription'])){echo $_SESSION['passwordInscription'];} ?>/>
+    <input type="hidden" id="verifypasswordInscriptionHide" value=<?php if(isset($_SESSION['verifypasswordInscription'])){echo $_SESSION['verifypasswordInscription'];}  ?>/>
     <div class="Main">
         <header>
             <div class="headerGauche">
@@ -163,11 +185,11 @@
             <div class="sousTitre"></div>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionGauche">
-                    <input type="text" name="nom" placeholder="Nom" required/>
-                    <input type="text" name="telephone" placeholder="Téléphone" minlength="10" required/>
+                    <input type="text" name="nom" id="nomInscription" placeholder="Nom" required/>
+                    <input type="text" name="telephone" id="telInscription" placeholder="Téléphone" minlength="10" required/>
                 </div>
                 <div class="formulaireInscriptionGauche">
-                    <input type="text" name="prenom" placeholder="Prénom" required/>
+                    <input type="text" name="prenom" id="prenomInscription" placeholder="Prénom" required/>
                     <select name="type_client" id="typeSelect" onChange='InscriptionClientSpeciaux()' required>
                         <option value="" hidden selected>Choisissez votre profil</option>
                         <?php
@@ -188,8 +210,8 @@
             </div>
             <div class="formulaireInscriptionLigneSeul">
                 <input type="text" name="groupe" id='groupe' placeholder=""/>
-                <input type="email" name="email" placeholder="E-mail" required/>
-                <input type="text" name="adressePostale" placeholder="Adresse postale" required/>
+                <input type="email" name="email" placeholder="E-mail" id="emailInscription" required/>
+                <input type="text" name="adressePostale" id="adresseInscription" placeholder="Adresse postale" required/>
             </div>
             <div class="formulaireInscription">
                 <div class="formulaireInscriptionDroit">

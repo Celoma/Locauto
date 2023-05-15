@@ -20,10 +20,23 @@ if(new URLSearchParams(window.location.search).get('error') == "Connection denie
     document.getElementById("divcomp3").style.visibility = 'visible';
     connexionPopUp();
 } else if(new URLSearchParams(window.location.search).get('error') == "Inscription denied"){
+    document.getElementById("nomInscription").value = document.getElementById("nomInscriptionHide").value.slice(0, -1);
+    document.getElementById("telInscription").value = document.getElementById("telephoneInscriptionHide").value.slice(0, -1);
+    document.getElementById("prenomInscription").value = document.getElementById("prenomInscriptionHide").value.slice(0, -1);
+    document.getElementById("typeSelect").value = document.getElementById("typeclientInscriptionHide").value.slice(0, -1);
+    try {
+        document.getElementById("groupe").value = document.getElementById("groupInscriptionHide").value.slice(0, -1);
+    } catch {}
+    document.getElementById("emailInscription").value = document.getElementById("emailInscriptionHide").value.slice(0, -1);
+    document.getElementById("adresseInscription").value = document.getElementById("adressePostaleInscriptionHide").value.slice(0, -1);
+    document.getElementById("mdp1").value = document.getElementById("verifypasswordInscriptionHide").value.slice(0, -1);
+    document.getElementById("mdp2").value = document.getElementById("passwordInscriptionHide").value.slice(0, -1);
+
     document.getElementById("divcomp4").innerHTML = new URLSearchParams(window.location.search).get('cause');
     document.getElementById("divcomp4").style.visibility = 'visible';
     inscriptionPopUp();
 }
+
 function connexionPopUp(){
     document.querySelector(".PopUpInscription").style.display = 'None';
     body.style.filter = 'blur(10px)';
@@ -36,6 +49,8 @@ function inscriptionPopUp(){
     body.style.filter = 'blur(10px)';
     document.querySelector(".PopUpBg").style.display = 'block';
     document.querySelector(".PopUpInscription").style.display = 'block';
+    InscriptionClientSpeciaux();
+    checkPass();
 }
 
 /* Ferme les popup inscription et connexion */
@@ -43,6 +58,16 @@ function closeAll(){
     body.style.filter = 'blur(0px)';
     document.getElementById("mdpEntré").value = null;
     document.getElementById("emailEntré").value = null;
+
+    document.getElementById("nomInscription").value = null;
+    document.getElementById("telInscription").value = null;
+    document.getElementById("prenomInscription").value = null;
+    document.getElementById("typeSelect").value = "";
+    document.getElementById("groupe").value = null;
+    document.getElementById("emailInscription").value = null;
+    document.getElementById("adresseInscription").value = null;
+    document.getElementById("mdp1").value = null;
+    document.getElementById("mdp2").value = null;
 
     document.querySelector(".PopUpBg").style.display = 'None';
     document.querySelector(".PopUpConnexion").style.display = 'None';
