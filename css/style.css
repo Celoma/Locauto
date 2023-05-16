@@ -8,7 +8,6 @@ body{
     min-height: 100%;
     background-color: #FEF4F4;
     font-family: Poppins;
-    color: #2E2828;
 }
 h1 {
     font-size: 40px;
@@ -298,7 +297,7 @@ select:focus{
     color: #16a085;
 }
 
-input[type='submit'] {
+.formulaireSubmit {
     font-family: Poppins;
     margin-top: 20px;
     padding:5px 15px;
@@ -313,7 +312,7 @@ input[type='submit'] {
     transition: 0.3s;
 }
 
-input[type='submit']:hover {
+.formulaireSubmit:hover {
     color: #503A3A;
 }
 
@@ -437,7 +436,7 @@ select:invalid{
     user-select: none;
     background-color: #F65151;
     width: 25%;
-    height: auto;
+    height: fit-content;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -464,18 +463,26 @@ select:invalid{
     background-color: #AAA;
 }
 
-#adminFormSubmit {
+.adminFormSubmit {
     background-color: #FEF4F4;
     margin-left: 0px;
     font-size: 15px;
-    color:#F65151;
     padding: 5px 5px;
     margin-top: 5px;
+    color: #F65151;
     margin-bottom: auto;
+    font-family: Poppins;
+    border:0 none;
+    cursor:pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-#adminFormSubmit:hover {
+.adminFormSubmit:hover {
     background-color: #503A3A;
+    color: #FEF4F4;
+
 }
 
 .recherchePerso {

@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <p id='divcomp4'></p>
-                <input type='submit' value='Inscription'>
+                <input type='submit' class='formulaireSubmit' value='Inscription'>
             </form>
             <p id='linkConnexion'>Se connecter</p>
         </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div id='divcomp3'>E-mail ou mot de passe incorrect</div>
-                <input type='submit' value='Connexion'>
+                <input type='submit' class='formulaireSubmit' value='Connexion'>
             </form>
             <p id='mdpOublie'>Mot de passe oublié ?</p>
             <p id='linkInscription'>S'incrire maintenant</p>

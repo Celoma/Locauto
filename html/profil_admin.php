@@ -10,7 +10,7 @@
                     <input type='text' name='nomChercher' placeholder='Nom du client'></input>
                 </div>
                 <div class="recherchePersoDroite">
-                    <input type='submit' id='adminFormSubmit' value="Rechercher">
+                    <input type='submit' class='adminFormSubmit' value="Rechercher">
                 </div>
             </div>
         </form>
@@ -21,7 +21,7 @@
                     <input type='text' name='nomChercher' placeholder='Identifiant du Client'></input>
                 </div>
                 <div class="recherchePersoDroite">
-                    <input type='submit' id='adminFormSubmit' value="Rechercher">
+                    <input type='submit' class='adminFormSubmit' value="Rechercher">
                 </div>
             </div>
         </form>
