@@ -24,8 +24,7 @@
         <div class='BodyPage'>
             <?php
                 if($_SESSION['idtype'] == 1){
-                    echo "<h1 class='titreprofil'>Profil</h1>
-                    <h1>". $_SESSION["nom"]."</h1>";
+                    include "profil_admin.php";
                 } else {
                     include "profil_client.php";
                 }

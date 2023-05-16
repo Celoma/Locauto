@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/logo_blanc_noir.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
     <title>Loc'Auto</title>

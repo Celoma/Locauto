@@ -4,9 +4,11 @@
 }
 /* Basique */
 body{
+    overflow-x: hidden;
     min-height: 100%;
     background-color: #FEF4F4;
     font-family: Poppins;
+    color: #2E2828;
 }
 h1 {
     font-size: 40px;
@@ -24,6 +26,7 @@ h3 {
 
 /* Header */
 header {
+    user-select: none;
     display: flex;
     height: 80px;
     background-color: #F65151;
@@ -65,6 +68,7 @@ header a {
     margin-right: 10px;
     color: #503A3A;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 .speudo:hover {
@@ -78,6 +82,7 @@ header a {
 }
 
 .accesProfil:hover {
+    transition: 0.3s;
     background-color: #16a085;
 }
 
@@ -87,6 +92,7 @@ header a {
     list-style-type:none;
     display: none;
     position: fixed;
+    transition: 0.3s;
 }
 
 .profilBar:hover ul {
@@ -114,6 +120,7 @@ header a {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.3s;
 }
 
 .profilBar li a {
@@ -127,17 +134,20 @@ ul li:last-child {
 
 /* Connexion et Login styles */
 #headerInscription {
+    user-select: none;
     font-size: 20px;
     padding: 10px;
     margin: 15px;
     color: #503A3A;
     cursor: pointer;
+    transition: 0.3s;
 }
 #headerInscription:hover {
     color: #FEF4F4;
 }
 
 #headerConnexion {
+    user-select: none;
     font-size: 20px;
     padding: 15px;
     margin: 10px;
@@ -146,6 +156,7 @@ ul li:last-child {
     cursor: pointer;
 }
 #headerConnexion:hover {
+    transition: 0.3s;
     color: #F65151;
 }
 .BodyPage {
@@ -153,6 +164,7 @@ ul li:last-child {
 }
 /* Overlay de connexion et inscription */
 .PopUpConnexion {
+    user-select: none;
     position: fixed;
     width: 30%;
     min-width: 200px;
@@ -169,6 +181,7 @@ ul li:last-child {
 }
 
 .PopUpInscription {
+    user-select: none;
     position: fixed;
     width: 30%;
     min-width: 200px;
@@ -185,6 +198,7 @@ ul li:last-child {
 }
 
 .sousTitre {
+    user-select: none;
     margin: 0 35% 0 35%;
     border: #F65151 1px solid;
 }
@@ -207,7 +221,7 @@ ul li:last-child {
 }
 
 /* Formulaire Connexion */
-
+#rechercheClient input[type='text'],
 .PopUpInscription input[type="text"],
 .PopUpInscription input[type="password"] {
     display: block;
@@ -222,7 +236,7 @@ ul li:last-child {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 20px;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     margin-top: 5px;
 }
 
@@ -296,6 +310,7 @@ input[type='submit'] {
     font-size: 20px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 input[type='submit']:hover {
@@ -372,10 +387,13 @@ select:invalid{
     font-size: 70px;
     margin-left: 15%;
     width: 70%;
+    text-align: center;
     border-bottom: #F65151 1px solid;
+    margin-bottom: 50px;
 }
 
 .RightBodyProfil ul {
+    user-select: none;
     margin-top: 50px;
     padding-top: 20px;
     margin-left: 10px;
@@ -388,6 +406,7 @@ select:invalid{
 }
 
 .RightBodyProfil li {
+    user-select: none;
     text-align: center;
 }
 
@@ -403,4 +422,80 @@ select:invalid{
     margin-top: 80px;
     text-align: center;
     font-weight: 500;
+}
+
+.conteneurAdmin {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.conteneurAdmin > div {
+    user-select: none;
+    background-color: #F65151;
+    height: auto;
+    flex: 1 1 auto;
+    width: 25%;
+    margin-right: 2%;
+    margin-left: 2%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.titleRecherche {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2E2828;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.btnAdminAccessAll {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    color: #503A3A;
+    background-color: #FEF4F4;
+    transition: 0.3s;
+}
+
+.btnAdminAccessAll:hover{
+    background-color: #AAA;
+}
+
+#adminFormSubmit {
+    background-color: #FEF4F4;
+    margin-left: 0px;
+    font-size: 15px;
+    color:#F65151;
+    padding: 5px 5px;
+    margin-top: 5px;
+    margin-bottom: auto;
+}
+
+#adminFormSubmit:hover {
+    background-color: #503A3A;
+}
+
+.recherchePerso {
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.recherchePersoGauche {
+    width: 60%;
+}
+
+.recherchePersoDroite {
+    position: relative;
+    text-align: center;
+    width: 40%;
+}
+
+.titleForm {
+    padding: 5px;
+    font-size: 15px;
+    color: #FEF4F4;
+    border-top: 1px solid #2E2828;
 }
