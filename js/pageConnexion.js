@@ -29,8 +29,8 @@ if(new URLSearchParams(window.location.search).get('error') == "Connection denie
     } catch {}
     document.getElementById("emailInscription").value = document.getElementById("emailInscriptionHide").value.slice(0, -1);
     document.getElementById("adresseInscription").value = document.getElementById("adressePostaleInscriptionHide").value.slice(0, -1);
-    document.getElementById("mdp1").value = document.getElementById("verifypasswordInscriptionHide").value.slice(0, -1);
-    document.getElementById("mdp2").value = document.getElementById("passwordInscriptionHide").value.slice(0, -1);
+    document.getElementById("mdp2").value = document.getElementById("verifypasswordInscriptionHide").value.slice(0, -1);
+    document.getElementById("mdp1").value = document.getElementById("passwordInscriptionHide").value.slice(0, -1);
 
     document.getElementById("divcomp4").innerHTML = new URLSearchParams(window.location.search).get('cause');
     document.getElementById("divcomp4").style.visibility = 'visible';
@@ -86,17 +86,17 @@ let champA = document.getElementById("mdp1").value;
 let champB = document.getElementById("mdp2").value;
 
 var div_comp = document.getElementById("divcomp");
-    if(champA == champB)
+    if(champA == champB && champA!="")
         {
-        document.getElementById("divcomp2").style.display = 'hidden';
+        document.getElementById("divcomp2").style.visibility = 'hidden';
         document.getElementById("divcomp2").style.display = 'none';
         document.getElementById("divcomp").style.display = 'block';
-        document.getElementById("divcomp").style.display = 'visible';
+        document.getElementById("divcomp").style.visibility = 'visible';
         }
-    else
+    else if (champA != champB)
         {
         document.getElementById("divcomp").style.display = 'none';
-        document.getElementById("divcomp").style.display = 'hidden';
+        document.getElementById("divcomp").style.visibility = 'hidden';
         document.getElementById("divcomp2").style.display = 'block';
         document.getElementById("divcomp2").style.visibility = 'visible';
         }
