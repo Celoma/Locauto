@@ -5,7 +5,7 @@
             <img src='../img/logo_compte.png' class='accesProfil'>
             <ul>
                 <li><a href='profil.php'>Profil</a></li>
-                <li><a href='historique_achat'>Historique d'achat</a></li>
+                <li><a href='historique_achat'>Historique de Location</a></li>
                 <li><a href='deconnexion.php'>Déconnexion</a></li>
             </ul>
         </div>";

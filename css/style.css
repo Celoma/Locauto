@@ -349,3 +349,58 @@ select:invalid{
 #groupe {
     display: none;
 }
+
+.BodyProfilTop {
+    text-align: center;
+    width: 100%;
+}
+
+.SplitBodyProfil{
+    display: flex;
+}
+
+.LeftBodyProfil {
+    text-align: center;
+    width: 70%;
+}
+
+.RightBodyProfil {
+    width: 30%;
+}
+
+.titreprofil {
+    font-size: 70px;
+    margin-left: 15%;
+    width: 70%;
+    border-bottom: #F65151 1px solid;
+}
+
+.RightBodyProfil ul {
+    margin-top: 50px;
+    padding-top: 20px;
+    margin-left: 10px;
+    margin-right: 50px;
+    color: #FEF4F4;
+    min-height: 250px;
+    list-style: none;
+    background-color: #503A3A;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.RightBodyProfil li {
+    text-align: center;
+}
+
+.FirstLi {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    border-bottom: #FEF4F4 1px solid;
+}
+
+.noRes {
+    font-size: 20px;
+    margin-top: 80px;
+    text-align: center;
+    font-weight: 500;
+}

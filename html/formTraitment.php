@@ -24,7 +24,9 @@
                     $_SESSION['email'] = $row['mail'];
                     $_SESSION['nom'] = $row['nom'];
                     $_SESSION['prenom'] = $row['prenom'];
+                    $_SESSION['tel'] = $row['telephone'];
                     $_SESSION['id'] = $row['id_client'];
+                    $_SESSION['idtype'] = $row['id_type_de_client'];
                     $_SESSION['connected'] = "true";
                     header("Location: index.php");
                     exit();
@@ -90,6 +92,7 @@
                         $_SESSION['prenom'] = $row['prenom'];
                         $_SESSION['id'] = $row['id_client'];
                         $_SESSION['connected'] = "true";
+                        $_SESSION['idtype'] = $row['id_type_de_client'];
                         header("Location: index.php");
                         exit();
                     } else {
