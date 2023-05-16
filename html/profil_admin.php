@@ -1,4 +1,5 @@
-<h1 class='titreprofil'>Compte admin</h1>
+<h1 class='titleProfil'>Compte admin</h1>
+<h2 class='titlePartie'>Rechercher</h2>
 <div class='conteneurAdmin'>
     <div id='rechercheClient'>
         <p class='titleRecherche'>Rechercher un client</p>
@@ -13,7 +14,6 @@
                 </div>
             </div>
         </form>
-
         <p class='titleForm'>Recherche par identifiant</p>
         <form class='RechercheByName'>
             <div class="recherchePerso">
@@ -41,3 +41,4 @@
         <a href="#" class='btnAdminAccessAll'>Toutes les voitures</a>
     </div>
 </div>
+<h2 class='titlePartie'>Insertion</h2>

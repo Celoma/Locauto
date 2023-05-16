@@ -383,7 +383,7 @@ select:invalid{
     width: 30%;
 }
 
-.titreprofil {
+.titleProfil {
     font-size: 70px;
     margin-left: 15%;
     width: 70%;
@@ -426,18 +426,18 @@ select:invalid{
 
 .conteneurAdmin {
     width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .conteneurAdmin > div {
     user-select: none;
     background-color: #F65151;
-    height: auto;
-    flex: 1 1 auto;
     width: 25%;
-    margin-right: 2%;
-    margin-left: 2%;
+    height: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -498,4 +498,11 @@ select:invalid{
     font-size: 15px;
     color: #FEF4F4;
     border-top: 1px solid #2E2828;
+}
+
+.titlePartie {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
