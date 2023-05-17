@@ -16,9 +16,6 @@
 </head>
     <title>Loc'Auto</title>
 <body>
-
-    <!-- Remettre les valeurs des formulaires s'ils sont mal renseignés -->
-    <?php include "PopUpTraitment.php" ?>
     <div class='Main'>
         <?php include "ImportHeader.php"?>
         <div class='BodyPage'>
@@ -34,6 +31,5 @@
         </footer>
 
 <!-- Scripts -->
-<script type='text/javascript' src='../js/pageConnexion.js'></script>
 </body>
 </html>

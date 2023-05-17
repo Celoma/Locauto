@@ -449,6 +449,36 @@ select:invalid{
     font-weight: 600;
 }
 
+
+.titleForm {
+    padding: 5px;
+    font-size: 15px;
+    color: #FEF4F4;
+    border-top: 1px solid #2E2828;
+}
+
+.titlePartie {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.btnRecherche {
+    background-color: #FEF4F4;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #2E2828;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.btnRecherche:hover {
+    background-color: #AAA;
+    cursor: pointer;
+}
+
 .btnAdminAccessAll {
     display: block;
     text-align: center;
@@ -500,16 +530,17 @@ select:invalid{
     width: 40%;
 }
 
-.titleForm {
-    padding: 5px;
-    font-size: 15px;
-    color: #FEF4F4;
-    border-top: 1px solid #2E2828;
+.cacherClient {
+    display: none;
 }
 
-.titlePartie {
-    text-align: center;
-    font-size: 35px;
-    margin-bottom: 20px;
-    font-weight: 600;
+.fermetureRecherche {
+    margin: 10px;
+    position: fixed;
+    height: 50px;
+}
+
+#RechercheClientFermetureBtn {
+    display: none;
+    cursor: pointer;
 }
