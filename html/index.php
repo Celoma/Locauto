@@ -23,7 +23,6 @@
         </div>
         <footer>
         </footer>
-
 <!-- Scripts -->
 <script type='text/javascript' src='../js/pageConnexion.js'></script>
 </body>

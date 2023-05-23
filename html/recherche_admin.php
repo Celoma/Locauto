@@ -124,9 +124,8 @@
             echo "<h1>Affichage des voitures</h1>
             <h2 class='recherchetitle'>Voici toutes les voitures</h2><br><br>";
             $connexion = connexion();
-            $sql = "SELECT * FROM voiture JOIN client USING (id_client) JOIN voiture USING (id_voiture);";
+            $sql = "SELECT * FROM voiture";
             $resultat = mysqli_query($connexion, $sql);
-            if (mysqli_num_rows($resultat)>1){
                 echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultats trouvés <br>
                 <table>
                 <tr class='enteteRecherche'>
@@ -138,11 +137,9 @@
                     <td>Nom Client</td>
                     <td>Immatriculation</td>
                 </tr></h2>";
-            }
             while ($row =mysqli_fetch_row($resultat)) {
                 echo "<tr>";
                 foreach ($row as $k => &$value) {
-                    if ($k < 2) continue;
                         echo "<td> " . $value . " </td>";
                 }
                 echo "</tr>";
