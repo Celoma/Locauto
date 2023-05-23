@@ -67,95 +67,117 @@
     } else if(isset($_GET["all"])){
         $type = $_GET["all"];
         if ($type == 'client'){
-            echo "<h1>Affichage des clients</h1>
-            <h2 class='recherchetitle'>Voici tous les clients</h2><br><br>";
+            echo "<h1>Affichage des voitures</h1>";
             $connexion = connexion();
-            $sql = "SELECT * FROM client JOIN type_de_client USING (id_type_de_client);";
+            $sql = "SELECT * FROM Client JOIN type_de_client USING (id_type_de_client)";
             $resultat = mysqli_query($connexion, $sql);
-            if (mysqli_num_rows($resultat)>0){
-                echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultats trouvés <br>
-                <table>
-                <tr class='enteteRecherche'>
-                    <td>Prénom</td>
-                    <td>Nom</td>
-                    <td>Adresse Postale</td>
-                    <td>Adresse mail</td>
-                    <td>Mot de passe</td>
-                    <td>Téléphone</td>
-                    <td>Type client</td>
-                </tr></h2>";
-            }
-            while ($row =mysqli_fetch_row($resultat)) {
-                echo "<tr>";
-                foreach ($row as $k => &$value) {
-                    if ($k < 2) continue;
-                        echo "<td> " . $value . " </td>";
-                }
-                echo "</tr>";
-            }
-        } else if($type == 'location'){
-            echo "<h1>Affichage des locations</h1>
-            <h2 class='recherchetitle'>Voici toutes les locations</h2><br><br>";
-            $connexion = connexion();
-            $sql = "SELECT * FROM location JOIN client USING (id_client) JOIN voiture USING (id_voiture);";
-            $resultat = mysqli_query($connexion, $sql);
-            if (mysqli_num_rows($resultat)>1){
-                echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultats trouvés <br>
-                <table>
-                <tr class='enteteRecherche'>
-                    <td>Date début</td>
-                    <td>Date fin</td>
-                    <td>Compteur début</td>
-                    <td>Compteur fin</td>
-                    <td>E-mail Client</td>
-                    <td>Nom Client</td>
-                    <td>Immatriculation</td>
-                </tr></h2>";
-            }
-            while ($row =mysqli_fetch_row($resultat)) {
-                echo "<tr>";
-                foreach ($row as $k => &$value) {
-                    if ($k < 2) continue;
-                        echo "<td> " . $value . " </td>";
-                }
-                echo "</tr>";
-            }
-        } else if($type == 'voiture'){
-            echo "<h1>Affichage des voitures</h1>
-            <h2 class='recherchetitle'>Voici toutes les voitures</h2><br><br>";
             $tableau = [];
-            $connexion = connexion();
-            $sql = "SELECT * FROM voiture JOIN garage USING(id_garage) JOIN modele USING (id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)";
-            $resultat = mysqli_query($connexion, $sql);
-                echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultats trouvés <br>
-                <table id='tableau'>
-                <tr class='enteteRecherche'>
-                    <td>Immatriculation</td>
-                    <td>Marque</td>
-                    <td>Modèle</td>
-                    <td>Type véhicule</td>
-                    <td>Compteur</td>
-                    <td>Garage</td>
-                    <td>Prix</td>
-                    <td>Image</td>
-                </tr></h2>";
-            while ($row =mysqli_fetch_row($resultat)) {
-                echo "<tr>";
+        
+            while ($row = mysqli_fetch_row($resultat)) {
                 $tab = [];
                 foreach ($row as $k => &$value) {
                     array_push($tab, $value);
                 }
-                array_push ($tableau, "<td> " . $tab[4] . " </td>
-                <td> " . $tab[11] . " </td>
-                <td> " . $tab[7] . " </td>
-                <td> " . $tab[12] . " </td>
-                <td> " . $tab[5] . " </td>
-                <td> " . $tab[6] . " </td>
-                <td> " . $tab[13] . " </td>
-                <td><img src='../img/bdd_auto/" . $tab[8] . "'></td>
-                </tr>");
+                array_push($tableau, "<td> " . $tab[5] . " </td>
+                    <td> " . $tab[2] . " </td>
+                    <td> " . $tab[3] . " </td>
+                    <td> " . $tab[7] . " </td>
+                    <td> " . $tab[8] . " </td>
+                    <td> " . $tab[4] . " </td>
+                    <td> " . $tab[6] . " </td>");
             }
+            $totalItems = count($tableau);
+            $itemsPerPage = 50;
+            $totalPages = ceil($totalItems / $itemsPerPage);
+            
+            echo "<h2 class='recherchetitle'>Il y a " . $totalItems . " résultats trouvés <br>
+                <div id='navigation'>
+                    <button onclick='previousPage()'>Précédent</button>
+                    <button onclick='nextPage()'>Suivant</button>
+                    <div id='paginationInfo'></div>
+
+                </div>
+                <table id='tableau'>";
+            
+            echo "<div id='recupTableau' data-variable='" . htmlspecialchars(json_encode($tableau), ENT_QUOTES, 'UTF-8') . "'></div>";
+            
+            echo "</table>";
+        } else if($type == 'location'){
+            echo "<h1>Affichage des voitures</h1>";
+            $connexion = connexion();
+            $sql = "SELECT * FROM voiture JOIN garage USING(id_garage) JOIN modele USING (id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)";
+            $resultat = mysqli_query($connexion, $sql);
+            $tableau = [];
+        
+            while ($row = mysqli_fetch_row($resultat)) {
+                $tab = [];
+                foreach ($row as $k => &$value) {
+                    array_push($tab, $value);
+                }
+                array_push($tableau, "<td> " . $tab[4] . " </td>
+                    <td> " . $tab[11] . " </td>
+                    <td> " . $tab[7] . " </td>
+                    <td> " . $tab[12] . " </td>
+                    <td> " . $tab[5] . " </td>
+                    <td> " . $tab[6] . " </td>
+                    <td> " . $tab[13] . " </td>
+                    <td><img src='../img/bdd_auto/" . $tab[8] . "'></td>");
+            }
+            $totalItems = count($tableau);
+            $itemsPerPage = 50;
+            $totalPages = ceil($totalItems / $itemsPerPage);
+            
+            echo "<h2 class='recherchetitle'>Il y a " . $totalItems . " résultats trouvés <br>
+                <div id='navigation'>
+                    <button onclick='previousPage()'>Précédent</button>
+                    <button onclick='nextPage()'>Suivant</button>
+                    <div id='paginationInfo'></div>
+
+                </div>
+                <table id='tableau'>";
+            
+            echo "<div id='recupTableau' data-variable='" . htmlspecialchars(json_encode($tableau), ENT_QUOTES, 'UTF-8') . "'></div>";
+            
+            echo "</table>";
+        } else if ($type == 'voiture') {
+            echo "<h1>Affichage des voitures</h1>";
+            $connexion = connexion();
+            $sql = "SELECT * FROM voiture JOIN garage USING(id_garage) JOIN modele USING (id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie) ORDER BY id_modele";
+            $resultat = mysqli_query($connexion, $sql);
+            $tableau = [];
+        
+            while ($row = mysqli_fetch_row($resultat)) {
+                $tab = [];
+                foreach ($row as $k => &$value) {
+                    array_push($tab, $value);
+                }
+                array_push($tableau, "<td> " . $tab[4] . " </td>
+                    <td> " . $tab[11] . " </td>
+                    <td> " . $tab[7] . " </td>
+                    <td> " . $tab[12] . " </td>
+                    <td> " . $tab[5] . " </td>
+                    <td> " . $tab[6] . " </td>
+                    <td> " . $tab[13] . " </td>
+                    <td><img src='../img/bdd_auto/" . $tab[8] . "'></td>");
+            }
+            $totalItems = count($tableau);
+            $itemsPerPage = 50;
+            $totalPages = ceil($totalItems / $itemsPerPage);
+            
+            echo "<h2 class='recherchetitle'>Il y a " . $totalItems . " résultats trouvés <br>
+                <div id='navigation'>
+                    <button onclick='previousPage()'>Précédent</button>
+                    <button onclick='nextPage()'>Suivant</button>
+                    <div id='paginationInfo'></div>
+
+                </div>
+                <table id='tableau'>";
+            
+            echo "<div id='recupTableau' data-variable='" . htmlspecialchars(json_encode($tableau), ENT_QUOTES, 'UTF-8') . "'></div>";
+            
+            echo "</table>";
         }
     }
 ?>
+
 <script type='text/javascript' src='../js/gestionPageRecherche.js'></script>
