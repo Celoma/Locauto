@@ -27,9 +27,9 @@
                 }
             ?>
         </div>
+
         <footer>
         </footer>
-
 <!-- Scripts -->
 </body>
 </html>

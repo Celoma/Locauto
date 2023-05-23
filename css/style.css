@@ -609,3 +609,7 @@ table {
     display: flex;
     width: 50%;
 }
+
+tr img {
+    max-height: 80px;
+}
