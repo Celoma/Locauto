@@ -124,24 +124,34 @@
             echo "<h1>Affichage des voitures</h1>
             <h2 class='recherchetitle'>Voici toutes les voitures</h2><br><br>";
             $connexion = connexion();
-            $sql = "SELECT * FROM voiture";
+            $sql = "SELECT * FROM voiture JOIN garage USING(id_garage) JOIN modele USING (id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)";
             $resultat = mysqli_query($connexion, $sql);
                 echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultats trouvés <br>
                 <table>
                 <tr class='enteteRecherche'>
-                    <td>Date début</td>
-                    <td>Date fin</td>
-                    <td>Compteur début</td>
-                    <td>Compteur fin</td>
-                    <td>E-mail Client</td>
-                    <td>Nom Client</td>
                     <td>Immatriculation</td>
+                    <td>Marque</td>
+                    <td>Modèle</td>
+                    <td>Type véhicule</td>
+                    <td>Compteur</td>
+                    <td>Garage</td>
+                    <td>Prix</td>
+                    <td>Image</td>
                 </tr></h2>";
             while ($row =mysqli_fetch_row($resultat)) {
                 echo "<tr>";
+                $tab = [];
                 foreach ($row as $k => &$value) {
-                        echo "<td> " . $value . " </td>";
+                    array_push($tab, $value);
                 }
+                echo "<td> " . $tab[4] . " </td>";
+                echo "<td> " . $tab[11] . " </td>";
+                echo "<td> " . $tab[7] . " </td>";
+                echo "<td> " . $tab[12] . " </td>";
+                echo "<td> " . $tab[5] . " </td>";
+                echo "<td> " . $tab[6] . " </td>";
+                echo "<td> " . $tab[13] . " </td>";
+                echo "<td><img src='../img/bdd_auto/" . $tab[8] . "'></td>";
                 echo "</tr>";
             }
         }
