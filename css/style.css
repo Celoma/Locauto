@@ -10,6 +10,7 @@ body{
     font-family: Poppins;
 }
 h1 {
+    text-align: center;
     font-size: 40px;
     margin: 10px;
     color: #503A3A;
@@ -201,6 +202,7 @@ ul li:last-child {
     margin: 0 35% 0 35%;
     border: #F65151 1px solid;
 }
+
 .formulaireInscription {
     display: flex;
     margin: 10px;
@@ -220,7 +222,7 @@ ul li:last-child {
 }
 
 /* Formulaire Connexion */
-#rechercheClient input[type='text'],
+.conteneurAdmin input[type='text'],
 .PopUpInscription input[type="text"],
 .PopUpInscription input[type="password"] {
     display: block;
@@ -375,6 +377,7 @@ select:invalid{
 
 .LeftBodyProfil {
     text-align: center;
+    columns: 2;
     width: 70%;
 }
 
@@ -480,6 +483,7 @@ select:invalid{
 }
 
 .btnAdminAccessAll {
+    border-top: 1px solid #2E2828;
     display: block;
     text-align: center;
     text-decoration: none;
@@ -533,6 +537,12 @@ select:invalid{
 .cacherClient {
     display: none;
 }
+.cacherLocation {
+    display: none;
+}
+.cacherVoiture {
+    display: none;
+}
 
 .fermetureRecherche {
     margin: 10px;
@@ -540,7 +550,61 @@ select:invalid{
     height: 50px;
 }
 
-#RechercheClientFermetureBtn {
+.fermetureRecherche {
     display: none;
     cursor: pointer;
+}
+
+.retour {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    text-decoration: none;
+    color: #F65151;
+}
+
+.recherchetitle {
+    margin-left: 35px;
+}
+
+table, td{
+    border: 1px solid #2E2828;
+    padding: 5px;
+    color: #2E2828;
+}
+
+table {
+    width: 90%;
+    margin-top: 75px;
+    margin-left: 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-collapse: collapse;
+}
+
+.enteteRecherche td {
+    color: #F65151;
+    font-size: 25px;
+}
+
+.SplitBodyProfil input {
+    margin-top: 20px;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-left: 25%;
+    height: 32px;
+    border: none;
+    background-color: #FEF4F4;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #777;
+}
+
+
+.unParam {
+    display: flex;
+    width: 50%;
 }

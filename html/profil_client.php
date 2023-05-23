@@ -4,7 +4,30 @@
 </div>
 <div class="SplitBodyProfil">
     <div class="LeftBodyProfil">
-
+        <div class="unParam">
+            <p>Nom</p>
+            <?php echo"<input type='text' value= " . $_SESSION['nom'] ."></input>"?>
+        </div>
+        <div class="unParam">
+            <p>Nom</p>
+            <?php echo"<input type='text' value= " . $_SESSION['nom'] ."></input>"?>
+        </div>
+        <div class="unParam">
+            <p>Nom</p>
+            <?php echo"<input type='text' value= " . $_SESSION['nom'] ."></input>"?>
+        </div>
+        <div class="unParam">
+            <p>Nom</p>
+            <?php echo"<input type='text' value= " . $_SESSION['nom'] ."></input>"?>
+        </div>
+        <div class="unParam">
+            <p>Nom</p>
+            <?php echo"<input type='text' value= " . $_SESSION['nom'] ."></input>"?>
+        </div>
+        <div class="unParam">
+            <p>Nom</p>
+            <?php echo"<input type='text' value= " . $_SESSION['nom'] ."></input>"?>
+        </div>
     </div>
     <div class="RightBodyProfil">
         <ul>
