@@ -72,7 +72,7 @@
             $connexion = connexion();
             $sql = "SELECT * FROM client JOIN type_de_client USING (id_type_de_client);";
             $resultat = mysqli_query($connexion, $sql);
-            if (mysqli_num_rows($resultat)>1){
+            if (mysqli_num_rows($resultat)>0){
                 echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultats trouvés <br>
                 <table>
                 <tr class='enteteRecherche'>
@@ -84,17 +84,6 @@
                     <td>Téléphone</td>
                     <td>Type client</td>
                 </tr></h2>";
-            } else {
-            echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultat trouvé <br></h2>
-            <tr class='enteteRecherche'>
-                <td>Prénom</td>
-                <td>Nom</td>
-                <td>Adresse Postale</td>
-                <td>Adresse mail</td>
-                <td>Mot de passe</td>
-                <td>Téléphone</td>
-                <td>Type client</td>
-            </tr";
             }
             while ($row =mysqli_fetch_row($resultat)) {
                 echo "<tr>";
