@@ -123,11 +123,12 @@
         } else if($type == 'voiture'){
             echo "<h1>Affichage des voitures</h1>
             <h2 class='recherchetitle'>Voici toutes les voitures</h2><br><br>";
+            $tableau = [];
             $connexion = connexion();
             $sql = "SELECT * FROM voiture JOIN garage USING(id_garage) JOIN modele USING (id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)";
             $resultat = mysqli_query($connexion, $sql);
                 echo "<h2 class='recherchetitle'>Il y a " . mysqli_num_rows($resultat) . " résultats trouvés <br>
-                <table>
+                <table id='tableau'>
                 <tr class='enteteRecherche'>
                     <td>Immatriculation</td>
                     <td>Marque</td>
@@ -144,16 +145,17 @@
                 foreach ($row as $k => &$value) {
                     array_push($tab, $value);
                 }
-                echo "<td> " . $tab[4] . " </td>";
-                echo "<td> " . $tab[11] . " </td>";
-                echo "<td> " . $tab[7] . " </td>";
-                echo "<td> " . $tab[12] . " </td>";
-                echo "<td> " . $tab[5] . " </td>";
-                echo "<td> " . $tab[6] . " </td>";
-                echo "<td> " . $tab[13] . " </td>";
-                echo "<td><img src='../img/bdd_auto/" . $tab[8] . "'></td>";
-                echo "</tr>";
+                array_push ($tableau, "<td> " . $tab[4] . " </td>
+                <td> " . $tab[11] . " </td>
+                <td> " . $tab[7] . " </td>
+                <td> " . $tab[12] . " </td>
+                <td> " . $tab[5] . " </td>
+                <td> " . $tab[6] . " </td>
+                <td> " . $tab[13] . " </td>
+                <td><img src='../img/bdd_auto/" . $tab[8] . "'></td>
+                </tr>");
             }
         }
     }
 ?>
+<script type='text/javascript' src='../js/gestionPageRecherche.js'></script>

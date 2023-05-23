@@ -576,8 +576,9 @@ table, td{
 
 table {
     width: 90%;
-    margin-top: 75px;
+    margin-top: 15px;
     margin-left: 5%;
+    margin-bottom: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border-collapse: collapse;
 }
