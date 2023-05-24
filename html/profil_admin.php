@@ -31,7 +31,6 @@
         </div>
         <div id='btnRechercheClient' class='btnRecherche'>Voir les recherches disponibles</div>
     </div>
-
     <div id='rechercheLocation'>
             <img src="../img/x-transparent-free-png.png" class='fermetureRecherche' id='RechercheLocationFermetureBtn'>
             <p class='titleRecherche'>Rechercher une Location</p>
@@ -40,18 +39,18 @@
                 <form action='recherche.php?type=location' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
-                            <input type='text' name='nomChercher' placeholder='Nom du client'></input>
+                            <input type='text' name='clientChercher' placeholder='Nom du client'></input>
                         </div>
                         <div class="recherchePersoDroite">
                             <input type='submit' class='adminFormSubmit' value="Rechercher">
                         </div>
                     </div>
                 </form>
-                <p class='titleForm'>Recherche par E-mail du loueur</p>
+                <p class='titleForm'>Recherche par immatriculation</p>
                 <form action='recherche.php?type=location' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
-                            <input type='text' name='nomChercher' placeholder='E-mail du client'></input>
+                            <input type='text' name='immatriculationChercher' placeholder='Numéro Immatriculation'></input>
                         </div>
                         <div class="recherchePersoDroite">
                             <input type='submit' class='adminFormSubmit' value="Rechercher">
@@ -62,27 +61,69 @@
         </div>
         <div id='btnRechercheLocation' class='btnRecherche'>Voir les recherches disponibles</div>
     </div>
-
     <div id='rechercheVoiture'>
             <img src="../img/x-transparent-free-png.png" class='fermetureRecherche' id='RechercheVoitureFermetureBtn'>
             <p class='titleRecherche'>Rechercher une Voiture</p>
             <div class='cacherVoiture'>
                 <p class='titleForm'>Recherche par Immatriculation</p>
-                <form>
+                <form action='recherche.php?type=voiture' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
-                            <input type='text' name='nomChercher' placeholder='Immatriculation véhicule'></input>
+                            <input type='text' name='immatriculation' placeholder='Immatriculation véhicule'></input>
                         </div>
                         <div class="recherchePersoDroite">
                             <input type='submit' class='adminFormSubmit' value="Rechercher">
                         </div>
                     </div>
                 </form>
-                <p class='titleForm'>Recherche par identifiant</p>
-                <form>
+                <p class='titleForm'>Recherche par marque</p>
+                <form action='recherche.php?type=voiture' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
-                            <input type='text' name='nomChercher' placeholder='Identifiant du Voiture'></input>
+                            <select name='marque' required>
+                                <option value='' hidden selected>Recherche par marque</option>
+                                <?php
+                                    $connexion = connexion();
+                                    $requete = "
+                                    SELECT *
+                                    FROM marque";
+                                    $resultat = mysqli_query($connexion, $requete);
+                                    $i = 1;
+                                    while($ligne = mysqli_fetch_array($resultat)){
+                                        if($i > 1){
+                                            echo "<option value=" . $ligne['libelle'] . ">" . $ligne['libelle'] . "</option>";
+                                        }
+                                        $i+=1;
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="recherchePersoDroite">
+                            <input type='submit' class='adminFormSubmit' value="Rechercher">
+                        </div>
+                    </div>
+                </form>
+                <p class='titleForm'>Recherche par garage</p>
+                <form action='recherche.php?type=voiture' method='post'>
+                    <div class="recherchePerso">
+                        <div class="recherchePersoGauche">
+                        <select name='garage' required>
+                            <option value='' hidden selected>Recherche par ville</option>
+                            <?php
+                                $connexion = connexion();
+                                $requete = "
+                                SELECT *
+                                FROM garage";
+                                $resultat = mysqli_query($connexion, $requete);
+                                $i = 1;
+                                while($ligne = mysqli_fetch_array($resultat)){
+                                    if($i > 1){
+                                        echo "<option value=" . $ligne['ville'] . ">" . $ligne['ville'] . "</option>";
+                                    }
+                                    $i+=1;
+                                }
+                            ?>
+                        </select>
                         </div>
                         <div class="recherchePersoDroite">
                             <input type='submit' class='adminFormSubmit' value="Rechercher">

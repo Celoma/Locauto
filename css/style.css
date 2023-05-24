@@ -572,13 +572,16 @@ td{
     border: 1px solid #2E2828;
     color: #2E2828;
     font-size: 15px;
+    min-width: 80px;
 }
 
 table {
-    width: 90%;
     margin-top: 15px;
-    margin-left: 5%;
+    margin-right: 35px;
+    margin-left: 20px;
+    width: calc(100% - 70px);
     margin-bottom: 50px;
+    user-select: none;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border-collapse: collapse;
@@ -587,7 +590,7 @@ table {
 .enteteRecherche td {
     color: #FEF4F4;
     background-color: #F6515199;
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .SplitBodyProfil input {
@@ -648,3 +651,6 @@ button:hover {
 .rouge {
     background-color: #F6515155;
 }
+
+
+
