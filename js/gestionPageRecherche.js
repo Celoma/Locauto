@@ -9,11 +9,11 @@ function affichagePage(page) {
 
   // Vérifier les limites de l'indice de fin
   const slicedTableau = tableauJS.slice(startIndex, endIndex);
-  if(new URLSearchParams(window.location.search).get('all')=='voiture'){
+  if(new URLSearchParams(window.location.search).get('type')=='voiture'){
     affichage.innerHTML = "<h2><tr class='enteteRecherche'><td>Immatriculation</td><td>Marque</td><td>Modèle</td><td>Type véhicule</td><td>Compteur</td><td>Garage</td><td>Prix</td><td>Image</td></tr></h2>"; 
-  } else if(new URLSearchParams(window.location.search).get('all')=='client') {
+  } else if(new URLSearchParams(window.location.search).get('type')=='client') {
     affichage.innerHTML = "<h2><tr class='enteteRecherche'><td>E-mail</td><td>Nom</td><td>Prénom</td><td>Téléphone</td><td>Groupe appartenance</td><td>Adresse postale</td><td>Mot de passe</td></tr></h2>"; 
-  } else if(new URLSearchParams(window.location.search).get('all')=='location'){
+  } else if(new URLSearchParams(window.location.search).get('type')=='location'){
     affichage.innerHTML = "<h2><tr class='enteteRecherche'><td>Immatriculation</td><td>Marque</td><td>Modèle</td><td>Type véhicule</td><td>Compteur</td><td>Garage</td><td>Prix</td><td>Image</td></tr></h2>";
   }
   for (let i = 0; i < slicedTableau.length; i++) {

@@ -6,7 +6,7 @@
             <p class='titleRecherche'>Rechercher un client</p>
             <div class='cacherClient'>
                 <p class='titleForm'>Recherche par nom</p>
-                <form action='recherche.php' method='post'>
+                <form action='recherche.php?type=client' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='nomChercher' placeholder='Nom du client' required></input>
@@ -17,7 +17,7 @@
                     </div>
                 </form>
                 <p class='titleForm'>Recherche par e-mail</p>
-                <form action='recherche.php' method='post'>
+                <form action='recherche.php?type=client' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='emailChercher' placeholder='E-mail du client' required></input>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </form>
-                <a href="recherche.php?all=client" class='btnAdminAccessAll' id='btnAccesClient'>Tous les clients</a>
+                <a href="recherche.php?type=client" class='btnAdminAccessAll' id='btnAccesClient'>Tous les clients</a>
         </div>
         <div id='btnRechercheClient' class='btnRecherche'>Voir les recherches disponibles</div>
     </div>
@@ -37,7 +37,7 @@
             <p class='titleRecherche'>Rechercher une Location</p>
             <div class='cacherLocation'>
                 <p class='titleForm'>Recherche par nom du loueur</p>
-                <form action='recherche.php' method='post'>
+                <form action='recherche.php?type=location' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='nomChercher' placeholder='Nom du client'></input>
@@ -48,7 +48,7 @@
                     </div>
                 </form>
                 <p class='titleForm'>Recherche par E-mail du loueur</p>
-                <form action='recherche.php' method='post'>
+                <form action='recherche.php?type=location' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='nomChercher' placeholder='E-mail du client'></input>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </form>
-                <a href="recherche.php?all=location" class='btnAdminAccessAll' id='btnAccesLocation'>Toutes les locations</a>
+                <a href="recherche.php?type=location" class='btnAdminAccessAll' id='btnAccesLocation'>Toutes les locations</a>
         </div>
         <div id='btnRechercheLocation' class='btnRecherche'>Voir les recherches disponibles</div>
     </div>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </form>
-                <a href="recherche.php?all=voiture" class='btnAdminAccessAll' id='btnAccesVoiture'>Toutes les voitures</a>
+                <a href="recherche.php?type=voiture" class='btnAdminAccessAll' id='btnAccesVoiture'>Toutes les voitures</a>
         </div>
         <div id='btnRechercheVoiture' class='btnRecherche'>Voir les recherches disponibles</div>
     </div>

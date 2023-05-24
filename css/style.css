@@ -563,7 +563,7 @@ select:invalid{
     color: #F65151;
 }
 
-.recherchetitle {
+.rechercheTitle {
     margin-left: 35px;
 }
 
@@ -579,12 +579,14 @@ table {
     margin-top: 15px;
     margin-left: 5%;
     margin-bottom: 50px;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border-collapse: collapse;
 }
 
 .enteteRecherche td {
-    color: #F65151;
+    color: #FEF4F4;
+    background-color: #F6515199;
     font-size: 25px;
 }
 
@@ -641,4 +643,8 @@ button {
 
 button:hover {
     color: #503A3A;
+}
+
+.rouge {
+    background-color: #F6515155;
 }
