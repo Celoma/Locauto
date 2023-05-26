@@ -27,7 +27,7 @@ if(isset($_GET["type"])){
                     array_push($tab, $value);
                 }
                 if(count($tableau)%2 == 1){
-                    array_push($tableau, "<tr class='rouge'><td> " . $tab[5] . " </td>
+                    array_push($tableau, "<tr class='rouge' value='" . $tab[5] . "'><td> " . $tab[5] . " </td>
                     <td> " . $tab[2] . " </td>
                     <td> " . $tab[3] . " </td>
                     <td> " . $tab[7] . " </td>
@@ -36,14 +36,14 @@ if(isset($_GET["type"])){
                     <td> " . $tab[9] . " </td>
                     <td> " . $tab[8] . " </td></tr>");
                 } else {
-                    array_push($tableau, "<td> " . $tab[5] . " </td>
+                    array_push($tableau, "<tr class='blanche' value='" . $tab[5] . "'><td> " . $tab[5] . " </td>
                     <td> " . $tab[2] . " </td>
                     <td> " . $tab[3] . " </td>
                     <td> " . $tab[7] . " </td>
                     <td> " . $tab[4] . " </td>
                     <td> " . $tab[6] . " </td>
                     <td> " . $tab[9] . " </td>
-                    <td> " . $tab[8] . " </td>");
+                    <td> " . $tab[8] . " </td><tr>");
                 }
             }
         } else if ($type == 'location' or isset($_POST["clientChercher"]) or isset($_POST["immatriculationChercher"])){
@@ -84,7 +84,7 @@ if(isset($_GET["type"])){
                     array_push($tab, $value);
                 }
                 if(count($tableau)%2 == 1){
-                    array_push($tableau, "<tr class='rouge'><td> " . $tab[11] . " </td>
+                    array_push($tableau, "<tr class='rouge' value='" . $tab[4] . "'><td> " . $tab[11] . " </td>
                     <td> " . $tab[12] . " </td>
                     <td> " . $tab[14] . " </td>
                     <td> " . $tab[16] . " </td>
@@ -98,7 +98,7 @@ if(isset($_GET["type"])){
                     <td> " . $tab[7] . " </td>
                     <td> " . $tab[8] . " </td></tr>");
                 } else {
-                    array_push($tableau, "<td> " . $tab[11] . " </td>
+                    array_push($tableau, "<tr class='blanche' value='" . $tab[4] . "'><td> " . $tab[11] . " </td>
                     <td> " . $tab[12] . " </td>
                     <td> " . $tab[14] . " </td>
                     <td> " . $tab[16] . " </td>
@@ -110,7 +110,7 @@ if(isset($_GET["type"])){
                     <td> " . $tab[25] . " </td>
                     <td> " . $tab[30] . " </td>
                     <td> " . $tab[7] . " </td>
-                    <td> " . $tab[8] . " </td>");
+                    <td> " . $tab[8] . " </td></tr>");
                 }
             }
         } else if ($type == 'voiture' or isset($_POST["garage"]) or isset($_POST["immatriculation"]) or isset($_POST['marque'])) {
@@ -148,7 +148,7 @@ if(isset($_GET["type"])){
                     array_push($tab, $value);
                 }
                 if(count($tableau)%2 == 1){
-                    array_push($tableau, "<tr class='rouge'><td> " . $tab[4] . " </td>
+                    array_push($tableau, "<tr class='rouge' value='" . $tab[4] . "'><td> " . $tab[4] . " </td>
                     <td> " . $tab[11] . " </td>
                     <td> " . $tab[7] . " </td>
                     <td> " . $tab[12] . " </td>
@@ -157,14 +157,14 @@ if(isset($_GET["type"])){
                     <td> " . $tab[13] . " </td>
                     <td><img src='../img/bdd_auto/" . $tab[8] . "'></td></tr>");
                 } else {
-                    array_push($tableau, "<td> " . $tab[4] . " </td>
+                    array_push($tableau, "<tr class='blanche' value='" . $tab[4] . "'><td> " . $tab[4] . " </td>
                     <td> " . $tab[11] . " </td>
                     <td> " . $tab[7] . " </td>
                     <td> " . $tab[12] . " </td>
                     <td> " . $tab[5] . " </td>
                     <td> " . $tab[6] . " </td>
                     <td> " . $tab[13] . " </td>
-                    <td><img src='../img/bdd_auto/" . $tab[8] . "'></td>");
+                    <td><img src='../img/bdd_auto/" . $tab[8] . "'></td></tr>");
             }
         }
     }
@@ -202,6 +202,7 @@ if(isset($_GET["type"])){
             echo "<h2 class='rechercheTitle'>Aucun résultat trouvé</h2>";
         }
     }
+
 ?>
 
 <script type='text/javascript' src='../js/gestionPageRecherche.js'></script>

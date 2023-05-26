@@ -15,21 +15,29 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
     <title>Loc'Auto</title>
-<body>
-    <div class='Main'>
-        <?php include "ImportHeader.php"?>
-        <div class='BodyPage'>
-            <?php
-                if($_SESSION['idtype'] == 1){
-                    include "recherche_admin.php";
-                } else {
-                    echo "<h1>Erreur d'autorisation</h1>";
-                }
-            ?>
-        </div>
-        <footer>
-        </footer>
 
-<!-- Scripts -->
-</body>
+    <body>
+
+        <div class='Main'>
+            <?php include "ImportHeader.php"?>
+            <div class='BodyPage'>
+                <?php
+                    if($_SESSION['idtype'] == 1){
+                        include "recherche_admin.php";
+                    } else {
+                        echo "<h1>Erreur d'autorisation</h1>";
+                    }
+                ?>
+            </div>
+        </div>
+                </div>
+        <?php
+                if($_SESSION['idtype'] == 1){
+                    include "redirect_admin.php";}
+    ?>
+            <footer>
+            </footer>
+
+    <!-- Scripts -->
+    </body>
 </html>

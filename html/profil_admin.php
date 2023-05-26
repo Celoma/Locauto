@@ -6,7 +6,7 @@
             <p class='titleRecherche'>Rechercher un client</p>
             <div class='cacherClient'>
                 <p class='titleForm'>Recherche par nom</p>
-                <form action='recherche.php?type=client' method='post'>
+                <form action='recherche.php?type=client&page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='nomChercher' placeholder='Nom du client' required></input>
@@ -17,7 +17,7 @@
                     </div>
                 </form>
                 <p class='titleForm'>Recherche par e-mail</p>
-                <form action='recherche.php?type=client' method='post'>
+                <form action='recherche.php?type=client&page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='emailChercher' placeholder='E-mail du client' required></input>
@@ -36,7 +36,7 @@
             <p class='titleRecherche'>Rechercher une Location</p>
             <div class='cacherLocation'>
                 <p class='titleForm'>Recherche par nom du loueur</p>
-                <form action='recherche.php?type=location' method='post'>
+                <form action='recherche.php?type=location&page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='clientChercher' placeholder='Nom du client'></input>
@@ -47,7 +47,7 @@
                     </div>
                 </form>
                 <p class='titleForm'>Recherche par immatriculation</p>
-                <form action='recherche.php?type=location' method='post'>
+                <form action='recherche.php?type=location&page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='immatriculationChercher' placeholder='Numéro Immatriculation'></input>
@@ -77,7 +77,7 @@
                     </div>
                 </form>
                 <p class='titleForm'>Recherche par marque</p>
-                <form action='recherche.php?type=voiture' method='post'>
+                <form action='recherche.php?type=voiture?page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <select name='marque' required>
@@ -104,7 +104,7 @@
                     </div>
                 </form>
                 <p class='titleForm'>Recherche par garage</p>
-                <form action='recherche.php?type=voiture' method='post'>
+                <form action='recherche.php?type=voiture&page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                         <select name='garage' required>
