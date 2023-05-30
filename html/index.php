@@ -20,10 +20,10 @@
     <?php include "PopUpTraitment.php" ?>
     <div class='Main'>
         <?php include "ImportHeader.php"?>
-        <div class='BodyPage'>
+        <div class='BodyPage'></div>
     </div>
-        <footer>
-        </footer>
+    <?php include "footer.php"?>
+    
 
 <!-- Scripts -->
 <script type='text/javascript' src='../js/pageConnexion.js'></script>
