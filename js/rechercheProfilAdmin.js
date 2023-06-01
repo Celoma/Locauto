@@ -1,5 +1,3 @@
-"Recherche Client"
-
 const btnOpenClient = document.getElementById("btnRechercheClient");
 const RechercheClientFermetureBtn = document.getElementById("RechercheClientFermetureBtn");
 
@@ -18,7 +16,6 @@ function fermetureRechercheClient(){
     document.querySelector('.cacherClient').style.display = 'none';
 }
 
-"Recherche Voiture"
 
 const btnOpenVoiture = document.getElementById("btnRechercheVoiture");
 const RechercheVoitureFermetureBtn = document.getElementById("RechercheVoitureFermetureBtn");
@@ -37,9 +34,6 @@ function fermetureRechercheVoiture(){
     RechercheVoitureFermetureBtn.style.display = 'none'
     document.querySelector('.cacherVoiture').style.display = 'none';
 }
-
-"Recherche Location"
-
 const btnOpenLocation = document.getElementById("btnRechercheLocation");
 const RechercheLocationFermetureBtn = document.getElementById("RechercheLocationFermetureBtn");
 

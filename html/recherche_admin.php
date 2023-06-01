@@ -202,7 +202,7 @@ if(isset($_GET["type"])){
             echo "<h2 class='rechercheTitle'>Aucun résultat trouvé</h2>";
         }
     }
-
+    
 ?>
 
 <script type='text/javascript' src='../js/gestionPageRecherche.js'></script>

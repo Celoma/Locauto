@@ -66,7 +66,7 @@
             <p class='titleRecherche'>Rechercher une Voiture</p>
             <div class='cacherVoiture'>
                 <p class='titleForm'>Recherche par Immatriculation</p>
-                <form action='recherche.php?type=voiture' method='post'>
+                <form action='recherche.php?type=voiture&page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <input type='text' name='immatriculation' placeholder='Immatriculation véhicule'></input>
@@ -77,7 +77,7 @@
                     </div>
                 </form>
                 <p class='titleForm'>Recherche par marque</p>
-                <form action='recherche.php?type=voiture?page=0' method='post'>
+                <form action='recherche.php?type=voiture&page=0' method='post'>
                     <div class="recherchePerso">
                         <div class="recherchePersoGauche">
                             <select name='marque' required>
@@ -90,10 +90,7 @@
                                     $resultat = mysqli_query($connexion, $requete);
                                     $i = 1;
                                     while($ligne = mysqli_fetch_array($resultat)){
-                                        if($i > 1){
                                             echo "<option value=" . $ligne['libelle'] . ">" . $ligne['libelle'] . "</option>";
-                                        }
-                                        $i+=1;
                                     }
                                 ?>
                             </select>
@@ -136,4 +133,12 @@
     </div>
 </div>
 <h2 class='titlePartie'>Insertion</h2>
+<div class='conteneurAdmin'>
+        <div id='btnInsertionClient' class='btnRecherche'>Insertion Client</div>
+        <div id='btnInsertionLocation' class='btnRecherche'>Insertion Location</div>
+        <div id='btnInsertionVoiture' class='btnRecherche'>Insertion Voiture</div>
+</div>
+<div class="PopUpBg" id="PopUpBg"></div>
+
+<script type='text/javascript' src='../js/profilAdmin_Insertion.js'></script>
 <script type='text/javascript' src='../js/rechercheProfilAdmin.js'></script>

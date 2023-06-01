@@ -48,8 +48,6 @@
             </form>
             <p id='linkConnexion'>Se connecter</p>
         </div>
-        
-        
         <div class='PopUpConnexion'>
             <form action='' method='post'>
                 <br>

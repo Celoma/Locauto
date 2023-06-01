@@ -21,9 +21,8 @@
     <div class='Main'>
         <?php include "ImportHeader.php"?>
         <div class='BodyPage'>
+        </div>
     </div>
-        <footer>
-        </footer>
 
 <!-- Scripts -->
 <script type='text/javascript' src='../js/pageConnexion.js'></script>
