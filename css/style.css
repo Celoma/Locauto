@@ -854,34 +854,63 @@ label #cancel{
     z-index: 2;
     text-align: center;
 }
-
+/* Footer
+-------------------------------------------------- */
 .footer {
 position: absolute;
 bottom: 0;
 width: 100%;
 /* Set the fixed height of the footer here */
-height: 300px;
 }
+<<<<<<< HEAD
 
 /* Taller footer on small screens */
 
   /* Footer
   -------------------------------------------------- */
+=======
+>>>>>>> 415efe54c8e1368a100d856f12b7fbb1a0a7e446
 footer {
-padding-top: 30px;
-background-color: #292c2f;
-color: #bbb;
+background-color: #2E2828;
+color: #FEF4F4;
 }
-
+footer h4{
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: large;
+}
 footer a {
-color: #999;
-text-decoration:none;
+color: #FEF4F4;
+text-decoration: none;
+}
+.row {
+display: flex;
+font-size: 20px;
+
+}
+.col-5 , .col-6 {
+flex: 1; 
+padding: 1em;
+border: none;
 }
 
-footer a:hover, footer a:focus {
-color: #aaa;
-text-decoration:none;
-border-bottom:1px dotted #999;
+footer li {
+color: #999;
+text-decoration: none;
+list-style: none;
+}
+
+.bouu li{
+    display: table-cell;
+    align-items: center;
+}
+
+i{
+    margin-left: 10px;
+    margin-right: 10px; 
+    
 }
 
 footer .form-control {

@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <h5><i class="fa fa-car"></i> LOC'AUTO</h5>
+                <h4><i class="fa fa-car"></i> LOC'AUTO</h4>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-5">
                         <ul class="list-unstyled">
                             <li><a href="">Production</a></li>
                             <li><a href="">Bénéfice</a></li>
@@ -21,7 +21,8 @@
                         </ul>
                     </div>
                 </div>
-                <ul class="nav">
+                <hr>
+                <ul class="bouu">
                     <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
                     <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
                     <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>

@@ -20,9 +20,16 @@
     <?php include "PopUpTraitment.php" ?>
     <div class='Main'>
         <?php include "ImportHeader.php"?>
+<<<<<<< HEAD
         <div class='BodyPage'>
         </div>
     </div>
+=======
+        <div class='BodyPage'></div>
+    </div>
+    <?php include "footer.php"?>
+    
+>>>>>>> 415efe54c8e1368a100d856f12b7fbb1a0a7e446
 
 <!-- Scripts -->
 <script type='text/javascript' src='../js/pageConnexion.js'></script>
