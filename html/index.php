@@ -17,13 +17,12 @@
     <?php include "PopUpTraitment.php" ?>
     <div class='Main'>
         <?php include "ImportHeader.php"?>
-<<<<<<< HEAD
     <section class="home" id="home">
         <div class="home-text">
             <h1 class="eslogan"><strong>Votre Location <br><span>Avec</span> <br>Simplicité</strong></h1>
             <p>Bienvenue chez Loc'Auto votre<br> spécialiste de la location de véhicule</p>
             <a href="#" class="btn">Choisi ta voiture</a>
-        </div>>
+        </div>
     </section>
     <section class="infos">
         <section class="infos-text">
@@ -65,20 +64,6 @@
     </div>
         <p class="copyright">&copy Copyright 2023 | Florian & Clément</p>
 </footer>
-
- 
-=======
-<<<<<<< HEAD
-        <div class='BodyPage'>
-        </div>
-    </div>
-=======
-        <div class='BodyPage'></div>
-    </div>
-    <?php include "footer.php"?>
-    
->>>>>>> 415efe54c8e1368a100d856f12b7fbb1a0a7e446
->>>>>>> 1ce29349e186a77290be601f76036213165541f2
 
 <!-- Scripts -->
 <script type='text/javascript' src='../js/pageConnexion.js'></script>

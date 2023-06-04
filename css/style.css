@@ -1057,6 +1057,7 @@ footer{
     .footer-links{
     grid-template-columns: 1fr;
 }
+}
 
 footer .form-control {
     background-color: #1f2022;
