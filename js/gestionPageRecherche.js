@@ -77,8 +77,9 @@ function gestionValue(){
 
       // Récupérer l'immatriculation de la ligne
       var value = this.getAttribute('value');
-
-      window.location.href = window.location.pathname + "?type=" + arg + "&search=" + value + "&page=" + page;
+      if(value != null){
+        window.location.href = window.location.pathname + "?type=" + arg + "&search=" + value + "&page=" + page;
+      }
 
   });
 }

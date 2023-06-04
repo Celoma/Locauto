@@ -50,6 +50,7 @@
         $client_type = $_POST['type_client'];
         $prenom = $_POST['prenom'];
         $nom = $_POST['nom'];
+        $groupe = $_POST['groupe'];
 
         $_SESSION['emailInscription']=$_POST['email'];
         $_SESSION['passwordInscription']=$_POST['password'];
@@ -75,8 +76,8 @@
                 exit();
             } else {
                 try{
-                    $sql = "INSERT INTO client (nom, prenom, adresse, mail, mots_de_passe, telephone, id_type_de_client)
-                    VALUES ('$nom', '$prenom', '$adresse', '$email', '$pass', '$tel', '$client_type');";
+                    $sql = "INSERT INTO client (nom, prenom, adresse, mail, mots_de_passe, telephone, id_type_de_client, groupe)
+                    VALUES ('$nom', '$prenom', '$adresse', '$email', '$pass', '$tel', '$client_type', '$groupe');";
                     mysqli_query($connexion, $sql);
                 } catch(Exception $e){
                     header("Location: index.php?error=Inscription denied&cause=Une erreur est survenue, n'utilisé pas ' s'il vous plait");

@@ -2,7 +2,6 @@
     $id_session = session_id();
     include "../bdd/biblio.php";
     $connexion = connexion();
-    include "formTraitment.php";
     if($_SESSION['connected'] == "false"){
         header("Location: index.php");
     }
@@ -27,9 +26,13 @@
                 }
             ?>
         </div>
-
         <footer>
         </footer>
+    </div>
+    <?php
+        if($_SESSION['idtype'] == 1){
+            include "popup.php";
+        } ?>
 <!-- Scripts -->
 </body>
 </html>

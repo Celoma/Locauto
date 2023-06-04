@@ -181,7 +181,26 @@ ul li:last-child {
     text-align: center;
     padding-bottom: 20px;
 }
+.popup input[type='submit'] {
+    width: 30%;
+    font-family: Poppins;
+    margin-top: 20px;
+    margin-left: 35%;
+    padding-bottom: 40px;
+    background:#F65151;
+    color: #FEF4F4;
+    border:0 none;
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
 
+.popup input[type='submit']:hover {
+    color: #503A3A;
+}
 .PopUpInscription {
     user-select: none;
     position: fixed;
@@ -197,6 +216,54 @@ ul li:last-child {
     display: none;
     text-align: center;
     padding-bottom: 20px;
+}
+
+.PopUpClient {
+    user-select: none;
+    position: fixed;
+    width: 50%;
+    min-width: 200px;
+    top: 25%;
+    left: 25%;
+    background-color: #FEF4F4;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    display: none;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.PopUpLocation {
+    user-select: none;
+    position: fixed;
+    width: 50%;
+    min-width: 200px;
+    top: 25%;
+    left: 25%;
+    background-color: #FEF4F4;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    display: none;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.PopUpVoiture {
+    user-select: none;
+    position: fixed;
+    width: 50%;
+    min-width: 200px;
+    top: 25%;
+    left: 25%;
+    background-color: #FEF4F4;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    display: none;
+    text-align: center;
+    padding-bottom: 50px;
 }
 
 .sousTitre {
@@ -224,8 +291,28 @@ ul li:last-child {
     display: none;
 }
 
+.popup input {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 90%;
+    margin: 5%;
+    height: 32px;
+    border: none;
+    background-color: #FEF4F4;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.formulaireInscriptionGauche {
+    width: 80%;
+}
 /* Formulaire Connexion */
 .conteneurAdmin input[type='text'],
+.update input,
 .PopUpInscription input[type="text"],
 .PopUpInscription input[type="password"] {
     display: block;
@@ -440,14 +527,14 @@ select:invalid{
 
 .conteneurAdmin > div {
     user-select: none;
-    background-color: #F65151;
     width: 25%;
     height: fit-content;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .titleRecherche {
-    margin-top: 10px;
+    background-color: #F65151;
+    padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #2E2828;
     text-align: center;
@@ -471,10 +558,9 @@ select:invalid{
 }
 
 .btnRecherche {
-    background-color: #FEF4F4;
+    background-color: #efdcdc;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-top: 1px solid #2E2828;
     text-align: center;
     font-size: 25px;
     font-weight: 600;
@@ -539,17 +625,20 @@ select:invalid{
 
 .cacherClient {
     display: none;
+    background-color: #F65151;
 }
 .cacherLocation {
     display: none;
+    background-color: #F65151;
 }
 .cacherVoiture {
     display: none;
+    background-color: #F65151;
 }
 
 .fermetureRecherche {
     margin: 10px;
-    position: fixed;
+    position: absolute;
     height: 50px;
 }
 
@@ -754,28 +843,71 @@ label #cancel{
 .recherchePopUp {
     user-select: none;
     position: fixed;
-    width: 30%;
+    width: 50%;
     min-width: 200px;
-    min-height: 300px;
-    top: 25%;
-    left: 35%;
+    min-height: 600px;
+    top: 8%;
+    left: 25%;
+    margin-bottom: 0;
     background-color: #FEF4F4;
     border-radius: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     z-index: 2;
     text-align: center;
-    padding-bottom: 20px;
 }
 /* bodypage */
 section{
     padding: 4rem 0 2rem;
 }
+
 .home{
     max-width: auto;
     margin: auto;
     width: 100%;
     min-height: 875px;
     display: flex;
+
+
+
+/* Taller footer on small screens */
+
+  /* Footer
+  -------------------------------------------------- */
+footer {
+background-color: #2E2828;
+color: #FEF4F4;
+}
+footer h4{
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: large;
+}
+footer a {
+color: #FEF4F4;
+text-decoration: none;
+}
+.row {
+display: flex;
+font-size: 20px;
+
+}
+.col-5 , .col-6 {
+flex: 1; 
+padding: 1em;
+border: none;
+}
+
+footer li {
+color: #999;
+text-decoration: none;
+list-style: none;
+}
+
+.bouu li{
+    display: table-cell;
+>>>>>>> 1ce29349e186a77290be601f76036213165541f2
     align-items: center;
     background: url(../img/Background-home.png);
     background-repeat: no-repeat;
@@ -879,6 +1011,7 @@ footer{
     transition: 3.3s all;
     text-decoration: none;
 
+<<<<<<< HEAD
 }
 .sm-button:hover{
     background: linear-gradient(to right, #F65151, #cf0707	);
@@ -925,4 +1058,48 @@ footer{
     .footer-links{
     grid-template-columns: 1fr;
 }
+=======
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
+
+.rechercheconteneur {
+    display: flex;
+}
+
+.right, .left{
+    margin: 5%;
+    width: 40%;
+}
+
+.update input, .update select {
+    margin-bottom: 10px;
+}
+
+.update input[type='submit']{
+    width: 20%;
+    height: 50px;
+    margin-left: 40%;
+    background:#F65151;
+    color: #FEF4F4;
+    border:0 none;
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.hide {
+    display: none;
+    visibility: hidden;
+}
+.update input[type='submit']:hover {
+    color: #503A3A;
+>>>>>>> 1ce29349e186a77290be601f76036213165541f2
 }
