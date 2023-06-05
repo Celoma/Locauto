@@ -40,11 +40,11 @@
     </div>
 	<footer>
     <div class="sm-handle">
-                    <a href="https://instagram.com/ronakgiriraj" class="sm-button"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/giri-raj-ronak-999257212" class="sm-button"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://facebook.com/giriraj.ronak" class="sm-button"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/ronakgiriraj" class="sm-button"><i class="fab fa-twitter"></i></a>
-                    <a href="https://github.com/ronakgiriraj" class="sm-button"><i class="fab fa-github"></i></a>
+                    <a href="#" class="sm-button"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="sm-button"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="sm-button"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="sm-button"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="sm-button"><i class="fab fa-github"></i></a>
     </div>
     <div class="footer-links">
         <div class="menu">
