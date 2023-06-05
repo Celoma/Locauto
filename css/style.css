@@ -839,7 +839,6 @@ label #cancel{
 #check:checked ~ label #cancel{
     left: 195px;
 }
-
 .recherchePopUp {
     user-select: none;
     position: fixed;
@@ -855,7 +854,7 @@ label #cancel{
     z-index: 2;
     text-align: center;
 }
-/* bodypage */
+
 section{
     padding: 4rem 0 2rem;
 }
@@ -867,7 +866,27 @@ section{
     min-height: 875px;
     display: flex;
 }
-
+/* bodypage */
+footer {
+background-color: #2E2828;
+color: #FEF4F4;
+}
+footer h4{
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: large;
+}
+footer a {
+color: #FEF4F4;
+text-decoration: none;
+}
+footer li {
+color: #999;
+text-decoration: none;
+list-style: none;
+}
 .home{
     max-width: auto;
     margin: auto;
@@ -880,10 +899,64 @@ section{
     background-size: cover;
     background-position: center left;
 }
-
-i{
-    margin-left: 10px;
-    margin-right: 10px
+.home-text{
+    padding-left: 130px; 
+}
+.home-text h1{
+    font-size: 5.4rem;
+}
+.home-text span{
+    color: #F65151;
+}
+.home-text p{
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin: 0.5rem 150px 1.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.home-text a{
+    margin-bottom: 50px;
+}
+.btn{
+    margin-left: 11rem;
+    padding: 10px 22px;
+    background: #F65151;
+    color: #FEF4F4;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 2.4rem;
+}
+.btn:hover{
+    background: #fb3b3b;
+}
+.infos{
+    max-width: auto;
+    margin: auto;
+    width: 100%;
+    min-height: 930px;
+    display: flex;
+    align-items: center;
+    background: url(../img/bkgrnd_guy.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.infos-text{
+    padding-left: 130px;
+}
+.infos-text h1{
+    margin-bottom: 0;
+    color: #FEF4F4;
+    font-size: 5.4rem;
+    text-align: left;
+}
+.infos-text span{
+    color: #F65151;
+}
+.right-infos-text p{
+    display: flex;
+    text-align: right;
+    
 }
 .reserv{
     max-width: auto;
@@ -941,7 +1014,7 @@ footer{
 }
 /* TEXTE*/
 .footer-links{
- display: grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     color: #F65151;
     letter-spacing: 1.5px;
