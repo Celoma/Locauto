@@ -917,6 +917,10 @@ list-style: none;
     background-size: cover;
     background-position: center left;
 }
+i{
+    margin-left: 10px;
+    margin-right: 10px
+}
 .home-text{
     padding-left: 130px; 
 }
@@ -975,6 +979,7 @@ list-style: none;
     display: flex;
     text-align: right;
     
+
 }
 .reserv{
     max-width: auto;
