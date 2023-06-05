@@ -64,8 +64,6 @@
         <div class='BodyPage'>
         </div>
     </div>
-        <div class='BodyPage'></div>
-    </div>
     <?php include "footer.php"?>
     
 
