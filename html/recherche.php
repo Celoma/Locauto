@@ -35,8 +35,7 @@
                 if($_SESSION['idtype'] == 1){
                     include "redirect_admin.php";}
     ?>
-            <footer>
-            </footer>
+            <?php include "footer.php" ?>
 
     <!-- Scripts -->
     </body>

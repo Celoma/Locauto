@@ -33,6 +33,8 @@
         if($_SESSION['idtype'] == 1){
             include "popup.php";
         } ?>
+            <?php include "footer.php" ?>
+
 <!-- Scripts -->
 </body>
 </html>

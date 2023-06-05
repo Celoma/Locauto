@@ -124,7 +124,7 @@
                 <div class='formulaireInscriptionGauche'>
                 <input type='text' name='immatriculation' placeholder='Immatriculation' required/>
                 <select name="modele" id="insertion_modele" required>
-                            <option value="" hidden selected>Choisissez votre modele de véhicule</option>
+                            <option value="" hidden selected>Choisissez un modèle</option>
                             <?php
                             $requete = "SELECT *
                             FROM modele";
@@ -133,7 +133,7 @@
                                     echo "<option value=" . $ligne['id_modele'] . ">" . $ligne['libelle'] . "</option>";
                             }
                         ?>
-                        </select>
+                    </select>
                         <script>
                             function updateModeles() {
                                 var marqueSelect = document.getElementById("insertion_marque");
