@@ -955,6 +955,7 @@ list-style: none;
 }
 .right-infos-text p{
     display: flex;
+    position: absolute;
     text-align: right;
     
 }
