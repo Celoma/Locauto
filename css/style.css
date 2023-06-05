@@ -954,11 +954,12 @@ list-style: none;
     color: #F65151;
 }
 .right-infos-text p{
-    display: flex;
     position: absolute;
-    text-align: right;
-    
+    top:100%;
+    left: 70%;
+    text-align: justify;
 }
+
 .reserv{
     max-width: auto;
     margin: auto;
