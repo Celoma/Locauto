@@ -12,21 +12,13 @@
             <p>Téléphone</p>
             <?php echo"<input type='text' value= " . $_SESSION['tel'] ."></input>"?>
         </div>
-        <div class="unParam">
-            <p>Adresse mail</p>
-            <?php echo"<input type='text' value= " . $_SESSION['email'] ."></input>"?>
-        </div>
-        <div class="unParam">
+        <div class="unParam" >
             <p>Prénom</p>
             <?php echo"<input type='text' value= " . $_SESSION['prenom'] ."></input>"?>
         </div>
         <div class="unParam">
-            <p>Type de client</p>
-            <?php echo"<input type='text' value= " . $_SESSION['idtype'] ."></input>"?>
-        </div>
-        <div class="unParam">
-            <p>Nom</p>
-            <?php echo"<input type='text' value= " . $_SESSION['nom'] ."></input>"?>
+            <p>Email</p>
+            <?php echo"<input type='text' value= " . $_SESSION['email'] ."></input>"?>
         </div>
     </div>
     <div class="RightBodyProfil">

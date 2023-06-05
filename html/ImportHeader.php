@@ -9,11 +9,12 @@
             <div class="sidebar">
                 <strong class="info">Informations</strong>
                 <ul>
-                    <li><a href="../pages/index.html"><i class="fas fa-home"></i> Acceuil</a></li>
-                    <li><a href="#Apropos"><i class="fas fa-question-circle"></i> A propos de nous</a></li>
+                    <li><a href="../html/index.php"><i class="fas fa-home"></i> Acceuil</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> A propos de nous</a></li>
+                    <li><a href="#"><i class="fas fa-warehouse"></i> Nos Garages</a></li> 
                     <li><a href="#"><i class="fas fa-calendar-week"></i> Nos événements</a></li>
                     <li><a href="#"><i class="fas fa-sliders-h"></i> Paramètres</a></li>
-                    <li><a href="#contacter""><i class="fas fa-envelope"></i> Nous contactez</a></li>
+                    <li><a href="#contacter"><i class="fas fa-envelope"></i> Nous contactez</a></li>
                 </ul>
             </div>
         </nav>

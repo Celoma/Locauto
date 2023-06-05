@@ -706,8 +706,15 @@ table {
 .unParam {
     display: flex;
     width: 50%;
+    margin: 2rem;
+
+    
 }
 
+.garage{
+    background: url(../img/frmap.jpg) ;
+    width: 100%;
+}
 tr img {
     max-height: 50px;
 }
