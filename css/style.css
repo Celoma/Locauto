@@ -919,7 +919,9 @@ list-style: none;
     margin-bottom: 50px;
 }
 .reserv-text{
-    margin-left: 550px;
+    align-items: center;
+
+
 }
 .btn{
     margin-left: 11rem;
@@ -959,8 +961,8 @@ list-style: none;
 }
 .right-infos-text p{
     position: absolute;
-    top:100%;
-    left: 70%;
+    top: 130%;
+    left: 60%;
     text-align: justify;
 }
 
