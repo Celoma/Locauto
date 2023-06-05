@@ -34,7 +34,7 @@
     </section>
     <section class="reserv">
         <div class="reserv-text">
-            <h1>Trouve ta <br>réservation</h1>
+            <a class="btn">Trouve ta réservation</a>
         </div>
     </section>
     </div>

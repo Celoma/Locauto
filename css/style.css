@@ -918,10 +918,14 @@ list-style: none;
 .home-text a{
     margin-bottom: 50px;
 }
+.reserv-text{
+    margin-left: 550px;
+}
 .btn{
     margin-left: 11rem;
     padding: 10px 22px;
     background: #F65151;
+    cursor: pointer;
     color: #FEF4F4;
     font-weight: 400;
     text-decoration: none;
