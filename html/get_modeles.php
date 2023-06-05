@@ -9,6 +9,11 @@ $req_modeles = "SELECT * FROM modele WHERE id_marque = " . $selectedMarque;
 $req_modeles_res = mysqli_query($connexion, $req_modeles);
 
 $modeles = array();
+$modele = array(
+    "id_modele" => "",
+    "libelle" => "Choisissez un modèle / Modèle non défini"
+);
+array_push($modeles, $modele);
 
 while ($ligne_modele = mysqli_fetch_array($req_modeles_res)) {
     $modele = array(

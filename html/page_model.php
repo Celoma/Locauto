@@ -20,8 +20,8 @@
         <?php include "ImportHeader.php"?>
         <div class='BodyPage'>
         </div>
-        <footer>
-        </footer>
+        <?php include "footer.php" ?>
+
 
 <!-- Scripts -->
 <script type='text/javascript' src='../js/pageConnexion.js'></script>
