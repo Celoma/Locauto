@@ -49,7 +49,7 @@
     </div>
     <div class="footer-links">
         <div class="menu">
-            <h4 class="menu-title">Menu</h4>							
+            <h4 class="menu-title">Menu</h4>
             <a href="#" class="menu-links">Nos garages<a>
             <a href="#" class="menu-links">Nos vehicules</a>
             <a href="#" class="menu-links">Rejoins-nous</a>
@@ -65,7 +65,7 @@
         </div>
     </div>
     <?php include "footer.php"?>
-    
+
 
 <!-- Scripts -->
 <script type='text/javascript' src='../js/pageConnexion.js'></script>
