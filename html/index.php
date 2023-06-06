@@ -23,7 +23,7 @@
         <div class="home-text">
             <h1 class="eslogan"><strong>Votre Location <br><span>Avec</span> <br>Simplicité</strong></h1>
             <p>Bienvenue chez Loc'Auto votre<br> spécialiste de la location de véhicule</p>
-            <a href="#" class="btn">Choisi ta voiture</a>
+            <a href="../html/voiture.php" class="btn">Choisi ta voiture</a>
         </div>
     </section>
     <section class="infos" id='azerty'>

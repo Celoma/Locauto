@@ -19,7 +19,7 @@
         <?php include "ImportHeader.php"?>
     </div>
     <div class="quoiiii">
-    <h1 class="baka">T'as les crampté ?</h1>
+    <h1 class="baka">APAGNAN</h1>
     </div>
     <?php include "footer.php" ?>
 

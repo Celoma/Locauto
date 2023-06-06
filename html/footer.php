@@ -1,10 +1,10 @@
 <footer>
     <div class="sm-handle">
-                    <a href="#" class="sm-button"><i class="fab fa-instagram"></i></a>
-                    <a href="../html/quoicoube.php" class="sm-button"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="sm-button"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="sm-button"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="sm-button"><i class="fab fa-github"></i></a>
+                    <a href="../html/qoicoube.php" class="sm-button"><i class="fab fa-instagram"></i></a>
+                    <a href="../html/qoicoube1.php" class="sm-button"><i class="fab fa-linkedin"></i></a>
+                    <a href="../html/qoicoube2.php" class="sm-button"><i class="fab fa-facebook-f"></i></a>
+                    <a href="../html/qoicoube3.php" class="sm-button"><i class="fab fa-twitter"></i></a>
+                    <a href="../html/qoicoube4.php" class="sm-button"><i class="fab fa-github"></i></a>
     </div>
     <div class="footer-links">
         <div class="menu">

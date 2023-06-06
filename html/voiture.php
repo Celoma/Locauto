@@ -100,7 +100,6 @@
                         <a href='reservation.php?voiture=" . $row[1] . "' class='btn2'>Réserver</a>
                     </div>";
                 }
-            }
         ?>
     </div>
     <?php include "footer.php" ?>
