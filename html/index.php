@@ -3,6 +3,8 @@
     include "../bdd/biblio.php";
     $connexion = connexion();
     include "formTraitment.php";
+    $_SESSION['url'] = "index.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -1266,5 +1266,7 @@ footer .form-control {
 }
 
 .presVoitG img {
-
+    margin: 25%;
+    background-color: #777;
+    border-radius: 25px;
 }
