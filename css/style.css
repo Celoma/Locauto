@@ -732,10 +732,52 @@ table {
 
     
 }
-
 .garage{
-    background: url(../img/frmap.jpg) ;
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex ;
+}
+.listegarage {
+    object-fit: contain;
+    /* display: flex; */
+    top: 0%;
+    margin-right: 0%;
+}
+.listegarage .tiitle{
+    position: relative;
+    object-fit: contain;
+    text-align: center;
+    left: 40%;
+    margin-bottom: 10px;
+}
+.listegarage ul{
+    position: relative;
+    list-style: none;
+    left: 40%;
+    margin: 2rem;
+    
+}
+.listegarage li{
+    background-color: #f0dcdc;
+    text-align: center;
+    margin: 2rem;
+    font-size: 2.3rem;
+    font-weight: 600;
+    border-width: 3px;
+    border-style: solid;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.ratio{
+    background-color: white;
+    padding: 1rem;
+    border-width: 3px;
+    box-sizing: border-box;
+    border-style: solid;
+    margin: 2rem;
+    object-fit: contain;
+    display: flex;
+    width: 36rem;
 }
 tr img {
     max-height: 50px;
@@ -832,7 +874,7 @@ button:hover {
     display: none;
 }
 label #btn, label #cancel{
-    position: absolute;
+    position: fixed;
     cursor: pointer;
     background: #F65151;
     border-radius: 3px;
@@ -1006,8 +1048,9 @@ list-style: none;
     position: absolute;
     top: 130%;
     left: 60%;
-    text-align: justify;
-}
+    text-align: right;
+    font-size: 1.2rem;
+    }
 
 .reserv{
     max-width: auto;

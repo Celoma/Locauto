@@ -24,12 +24,12 @@
             <a href="#" class="btn">Choisi ta voiture</a>
         </div>
     </section>
-    <section class="infos">
+    <section class="infos" id='azerty'>
         <section class="infos-text">
             <h1 class="exp"><strong><span>15</span> ANS<br> D'EXPERIENCE</strong></h1>
         </section>
         <section class="right-infos-text">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.<br> Dolore iste in libero totam impedit soluta ad a natus<br> incidunt, at blanditiis alias magni, doloribus nemo,<br> eligendi quaerat laudantium modi nobis?</p>
+        <p>Nous somme une entreprise basée à Rennes.<br> Nous avons plus de 200 modèles disponibles et plus<br> de 1800 Véhicules disponibles sur l'ensemble de nos parcs<br> partout en France.</p>
         </section>
     </section>
     <section class="reserv">
