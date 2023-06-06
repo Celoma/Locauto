@@ -3,7 +3,11 @@
     include "../bdd/biblio.php";
     $connexion = connexion();
     include "formTraitment.php";
-    $_SESSION['url'] = "reservation.php";
+    $_SESSION['url'] = "reservation.php?voiture=" . $_GET["voiture"];
+    if(!isset($_SESSION['nb_day'])){
+        $_SESSION['nb_day'] = 1;
+        $_SESSION['garage'] = "";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -41,11 +45,26 @@
                                         <li> <div class='aa'> Modèle : </div>" . $row[1] . "</li>
                                         <li> <div class='aa'> Puissance : </div>" . $row[3] . " cheveaux</li>
                                         <li> <div class='aa'> Catégorie : </div>" . $row[4] . "</li>
-                                        <li> <div class='aa'> Prix : </div>" . $row[5] . "€</li>
+                                        <li> <div class='aa'> Prix : </div>" . $row[5] * $_SESSION['nb_day'] + $_SESSION['garage'] . "€</li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>";
+                        </div>
+                            ";
+                            if($_SESSION['garage'] == "") {
+
+                            } else {
+                                if($_SESSION['connected'] == 'true'){
+                                    if($_SESSION['idtype'] == 1){
+                                        echo"salam";
+                                    } else {
+                                        echo"salam les royas";
+                                    }
+                                } else {
+                                    echo"<p class='btn2' id='bugguer'>Se connecter</p>";
+                            }
+                            }
+
                 }
 
             } else {

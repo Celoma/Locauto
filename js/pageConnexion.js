@@ -13,6 +13,12 @@ inscription.addEventListener('click', inscriptionPopUp);
 PopUpBg.addEventListener('click', closeAll);
 } catch {}
 
+try {
+    const aaa = document.getElementById("bugguer");
+    aaa.addEventListener('click', connexionPopUp);
+
+} catch{}
+
 if(new URLSearchParams(window.location.search).get('error') == "Connection denied"){
     document.getElementById("mdpEntré").value = document.getElementById("mdp").value.slice(0, -1);
     document.getElementById("emailEntré").value = document.getElementById("email").value.slice(0, -1);

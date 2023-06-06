@@ -1046,10 +1046,10 @@ list-style: none;
 }
 .right-infos-text p{
     position: absolute;
-    top: 130%;
+    top: 100%;
     left: 60%;
     text-align: right;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     }
 
 .reserv{
@@ -1262,7 +1262,6 @@ footer .form-control {
 .toutpres {
     width: 100%;
     display: flex;
-    height: calc(100vh - 80px);
 }
 
 .presVoit {
@@ -1299,3 +1298,20 @@ footer .form-control {
     display: inline-block;
 }
 
+.btn2{
+    margin-left: 25%;
+    padding: 10px 22px;
+    background: #F65151;
+    cursor: pointer;
+    width: 50%;
+    color: #FEF4F4;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.4rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.btn2:hover{
+    background: #fb3b3b;
+}
