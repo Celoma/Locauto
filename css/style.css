@@ -1259,19 +1259,43 @@ footer .form-control {
     background-color: #777;
 }
 
-.presVoit {
+.toutpres {
     width: 100%;
     display: flex;
     height: calc(100vh - 80px);
 }
 
+.presVoit {
+    width: 70%;
+    margin-top: 50px;
+    margin-left: 15%;
+    padding: 20px;
+    height: 500px;
+    background-color: #999;
+    border-radius: 25px;
+    height: calc(50% + 30px);
+    display: flex;
+
+}
+
 .presVoitG {
     width: 50%;
     height: 100%;
-}
-
-.presVoitG img {
-    margin: 25%;
+    object-fit: contain;
     background-color: #777;
     border-radius: 25px;
 }
+
+.presVoitD li {
+    text-align: left;
+    list-style: none;
+    font-size: 40px;
+    margin: 10px;
+    color: #503A3A;
+}
+.aa {
+    font-weight: bold;
+    margin-right: 10px;
+    display: inline-block;
+}
+

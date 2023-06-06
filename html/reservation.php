@@ -18,19 +18,34 @@
     <?php include "PopUpTraitment.php" ?>
     <div class='Main'>
         <?php include "ImportHeader.php"?>
+        <h2><a class="retour" href="voiture.php">Retour</a></h2>
+
         <?php
             if(isset($_GET["voiture"])){
                 $con = connexion();
-                $sql = "SELECT image FROM voiture JOIN modele USING (id_modele) WHERE immatriculation='". $_GET["voiture"] ."';";
+                $sql = "SELECT image, modele.libelle, marque.libelle, puissance, categorie.libelle, prix
+                FROM voiture  JOIN modele USING (id_modele) JOIN marque USING (id_marque) JOIN categorie USING(id_categorie)
+                WHERE immatriculation='". $_GET["voiture"] ."';";
                 $res = mysqli_query($con,$sql);
                 while ($row = mysqli_fetch_row($res)) {
-                    echo "<div class='presVoit'>
-                        <div class='presVoitG'>
-                            <img src='../img/bdd_auto/" . $row[0] . "'>
-                        </div>
-                        <div class='presVoitD'>
-                        </div>
-                    </div>";
+                    echo "
+                        <h1 class='location'>" . $row[2] . " : ".$row[1] . "</h1>
+                        <div class='toutpres'>
+                            <div class='presVoit'>
+                                <div class='presVoitG'>
+                                    <img src='../img/bdd_auto/" . $row[0] . "'>
+                                </div>
+                                <div class='presVoitD'>
+                                    <ul>
+                                        <li> <div class='aa'> Marque : </div>" . $row[2] . "</li>
+                                        <li> <div class='aa'> Modèle : </div>" . $row[1] . "</li>
+                                        <li> <div class='aa'> Puissance : </div>" . $row[3] . " cheveaux</li>
+                                        <li> <div class='aa'> Catégorie : </div>" . $row[4] . "</li>
+                                        <li> <div class='aa'> Prix : </div>" . $row[5] . "€</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>";
                 }
 
             } else {
