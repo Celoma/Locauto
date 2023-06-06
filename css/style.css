@@ -337,7 +337,6 @@ select {
     padding: 5px;
     width: 90%;
     margin: 5%;
-    height: 32px;
     border: none;
     background-color: #FEF4F4;
     border-bottom: 1px solid #AAA;
@@ -1014,6 +1013,8 @@ list-style: none;
     cursor: pointer;
     color: #FEF4F4;
     font-weight: 400;
+    border: none;
+    border-radius: 15px;
     text-decoration: none;
     font-size: 2rem;
 }
@@ -1302,6 +1303,7 @@ footer .form-control {
     margin-left: 25%;
     padding: 10px 22px;
     background: #F65151;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     width: 50%;
     color: #FEF4F4;
