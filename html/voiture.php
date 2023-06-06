@@ -2,9 +2,9 @@
     $id_session = session_id();
     include "../bdd/biblio.php";
     $connexion = connexion();
-    if($_SESSION['connected'] == "false"){
-        header("Location: index.php");
-    }
+    include "formTraitment.php";
+    // Afficher l'URL
+    $_SESSION['url'] = "location.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,6 +15,8 @@
 </head>
     <title>Loc'Auto</title>
 <body>
+<?php include "PopUpTraitment.php" ?>
+
     <div class='Main'>
         <?php include "ImportHeader.php"?>
         <div class='BodyPage'>
@@ -34,12 +36,19 @@
     <div class="voitureLoc">
         <?php
             if(isset($_POST["villeDepart"])){
-                $date_debut = $_POST['datedebut'];
-                $date_fin = $_POST['datefin'];
-                $nom_de_la_ville = $_POST['villeDepart'];
-                $nom_de_la_ville2 = $_POST['villeArrive'];
-                $modele = $_POST['modele'];
-                $marque = $_POST['marque'];
+                $_SESSION['url'] = "voiture.php";
+                $_SESSION['datedebut'] = $_POST['datedebut'];
+                $_SESSION['datefin'] = $_POST['datefin'];
+                $_SESSION['villeDepart'] = $_POST['villeDepart'];
+                $_SESSION['villeArrive'] = $_POST['villeArrive'];
+                $_SESSION['modele'] = $_POST['modele'];
+                $_SESSION['marque'] = $_POST['marque'];
+                $date_debut = $_SESSION['datedebut'];
+                $date_fin = $_SESSION['datefin'];
+                $nom_de_la_ville = $_SESSION['villeDepart'];
+                $nom_de_la_ville2 = $_SESSION['villeArrive'];
+                $modele = $_SESSION['modele'];
+                $marque = $_SESSION['marque'];
                 $con = connexion();
                 if($_POST['modele'] != ""){
                     $sql = "SELECT modele.libelle, v.immatriculation, marque.libelle, modele.image, categorie.prix
@@ -82,13 +91,13 @@
                         GROUP BY modele.libelle";
                 }
                 $res = mysqli_query($con,$sql);
-                while ($row = mysqli_fetch_row($res)) {
+                while ($row = mysqli_fetch_row($res))
                     echo"<div class='voiture'>
                         <img src='../img/bdd_auto/" . $row[3] ."'>
                         <h2> Marque : " . $row[2] . "</h2>
                         <h2> Modèle : " . $row[0] . "</h2>
                         <h2> Prix : " . $row[4] * $_SESSION['nb_day'] . "€</h2>
-                        <a href='' class='btn2'>Réserver</a>
+                        <a href='reservation.php?voiture=" . $row[1] . "' class='btn2'>Réserver</a>
                     </div>";
                 }
             }
@@ -98,5 +107,7 @@
 
 
 <!-- Scripts -->
+<script type='text/javascript' src='../js/pageConnexion.js'></script>
+
 </body>
 </html>

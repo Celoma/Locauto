@@ -12,5 +12,8 @@ const arrive = document.getElementById('arrive');
 const depart = document.getElementById('depart');
 
 arrive.addEventListener('change', function() {
-if (arrive.value & depart.value=== "") depart.value = arrive.value;
+if (depart.value=== ""){
+    depart.value = arrive.value;
+}
+
 }, false);

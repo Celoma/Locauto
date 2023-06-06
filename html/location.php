@@ -2,25 +2,24 @@
     $id_session = session_id();
     include "../bdd/biblio.php";
     $connexion = connexion();
-    if($_SESSION['connected'] == "false"){
-        header("Location: index.php");
-    }
+    include "formTraitment.php";
+    $_SESSION['url'] = "location.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../img/logo_blanc_noir.png">
     <link rel="stylesheet" href="../css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
     <title>Loc'Auto</title>
 <body>
+<?php include "PopUpTraitment.php" ?>
     <div class='Main'>
         <?php include "ImportHeader.php"?>
         <div class='BodyPage'>
-        </div>
-    </div>
-    <h1 class='location'>Louer la voiture de votre rêve</h1>
+        <h1 class='location'>Louer la voiture de votre rêve</h1>
     <div class='sousTitre'></div>
     <form class='popup' action='voiture.php' method='post'>
         <div class='locationform'>
@@ -127,11 +126,16 @@
                 </div>
             </div>
 
-            <input type='submit' class='formulaireSubmit' value='Voir les résultats'>
+            <input type='submit' class='formulaireSubmit2' value='Voir les résultats'>
     </form>
     <?php include "footer.php" ?>
+        </div>
+    </div>
+
 
 <!-- Scripts -->
+<script type='text/javascript' src='../js/pageConnexion.js'></script>
+
 <script type='text/javascript' src='../js/loc.js'></script>
 </body>
 </html>

@@ -38,5 +38,6 @@
             <?php include "footer.php" ?>
 
     <!-- Scripts -->
+
     </body>
 </html>

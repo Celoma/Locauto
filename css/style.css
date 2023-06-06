@@ -408,6 +408,28 @@ select:focus{
     color: #503A3A;
 }
 
+.formulaireSubmit2 {
+    margin-left: 45%;
+    font-family: Poppins;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding:5px 15px;
+    background:#F65151;
+    color: #FEF4F4;
+    border:0 none;
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.formulaireSubmit2:hover {
+    color: #503A3A;
+}
+
+
 select:invalid{
     color: #777;
 }
@@ -1187,4 +1209,9 @@ footer .form-control {
     text-decoration: none;
     width: 50%;
     background-color: #777;
+}
+
+.presVoit {
+    width: 100%;
+    display: flex;
 }

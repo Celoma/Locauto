@@ -1,5 +1,6 @@
 <?php
-    if($_SESSION['connected'] == "true"){
+if(isset($_SESSION['connected'])){
+        if($_SESSION['connected'] == "true"){
         echo "<a href='profil.php' class='speudo'>". $_SESSION['nom'] ." " . $_SESSION['prenom'] ."</a>
         <div class='profilBar'>
             <img src='../img/logo_compte.png' class='accesProfil'>
@@ -13,4 +14,9 @@
         echo "<div><p id='headerInscription'>Inscription</p></div>
         <div id='headerConnexion'><p>Connexion</p></div>";
     }
+} else {
+    echo "<div><p id='headerInscription'>Inscription</p></div>
+    <div id='headerConnexion'><p>Connexion</p></div>";
+}
+
 ?>

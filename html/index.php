@@ -2,7 +2,7 @@
     $id_session = session_id();
     include "../bdd/biblio.php";
     $connexion = connexion();
-    include "formTraitment.php"
+    include "formTraitment.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -2,7 +2,11 @@
     if(!isset($_SESSION['connected'])){
         $_SESSION['connected'] = "false";
     }
-
+    if(isset($_SESSION['url'])){
+        $redirect = $_SESSION['url'];
+    } else {
+        $redirect = "index.php";
+    }
     #Fonction vérification pour connecter l'utilisateur à un compte
     if (isset($_POST['emailConnexion']) && isset($_POST['passwordConnexion'])) {
         $_SESSION['email'] = $_POST['emailConnexion'];
@@ -10,10 +14,10 @@
         $email = $_SESSION['email'];
         $pass = $_SESSION['pass'];
         if (empty($email)) {
-            header("Location: index.php?error=Connection denied");
+            header("Location: ". $redirect ."?error=Connection denied");
             exit();
         }else if(empty($pass)){
-            header("Location: index.php?error=Connection denied");
+            header("Location: ". $redirect ."?error=Connection denied");
             exit();
         }else{
             $sql = "SELECT * FROM client WHERE mail='$email' AND mots_de_passe='$pass'";
@@ -28,14 +32,14 @@
                     $_SESSION['id'] = $row['id_client'];
                     $_SESSION['idtype'] = $row['id_type_de_client'];
                     $_SESSION['connected'] = "true";
-                    header("Location: index.php");
+                    header("Location: ". $redirect ."");
                     exit();
                 }else{
-                    header("Location: index.php?error=Connection denied");
+                    header("Location: ". $redirect ."?error=Connection denied");
                     exit();
                 }
             }else{
-                header("Location: index.php?error=Connection denied");
+                header("Location: ". $redirect ."?error=Connection denied");
                 exit();
             }
         }
@@ -63,16 +67,16 @@
         $_SESSION['groupInscription']=$_POST['groupe'];
 
         if($_POST['password'] != $_POST['verifypassword']){
-            header("Location: index.php?error=Inscription denied&cause=Les deux mots de passes doivent être identiques");
+            header("Location: ". $redirect ."?error=Inscription denied&cause=Les deux mots de passes doivent être identiques");
             exit();
         } else if($_POST['type_client'] > 2 & $_POST['groupe'] == null) {
-            header("Location: index.php?error=Inscription denied&cause=Tous les champs ne sont pas compléter");
+            header("Location: ". $redirect ."?error=Inscription denied&cause=Tous les champs ne sont pas compléter");
             exit();
         } else {
             $sql = "SELECT * FROM client WHERE mail='$email'";
             $result = mysqli_query($connexion, $sql);
             if (mysqli_num_rows($result) != 0) {
-                header("Location: index.php?error=Inscription denied&cause=E-mail déjà utilisé");
+                header("Location: ". $redirect ."?error=Inscription denied&cause=E-mail déjà utilisé");
                 exit();
             } else {
                 try{
@@ -80,7 +84,7 @@
                     VALUES ('$nom', '$prenom', '$adresse', '$email', '$pass', '$tel', '$client_type', '$groupe');";
                     mysqli_query($connexion, $sql);
                 } catch(Exception $e){
-                    header("Location: index.php?error=Inscription denied&cause=Une erreur est survenue, n'utilisé pas ' s'il vous plait");
+                    header("Location: ". $redirect ."?error=Inscription denied&cause=Une erreur est survenue, n'utilisé pas ' s'il vous plait");
                     exit();
                 }
                 $sql = "SELECT * FROM client WHERE mail='$email' AND mots_de_passe='$pass'";
@@ -94,14 +98,14 @@
                         $_SESSION['id'] = $row['id_client'];
                         $_SESSION['connected'] = "true";
                         $_SESSION['idtype'] = $row['id_type_de_client'];
-                        header("Location: index.php");
+                        header("Location: ". $redirect ."");
                         exit();
                     } else {
-                        header("Location: index.php?error=Inscription denied&cause=Une erreur est survenue");
+                        header("Location: ". $redirect ."?error=Inscription denied&cause=Une erreur est survenue");
                         exit();
                     }
                 } else {
-                    header("Location: index.php?error=Inscription denied&cause=E-mail déjà utilisé");
+                    header("Location: ". $redirect ."?error=Inscription denied&cause=E-mail déjà utilisé");
                     exit();
                 }
             }
