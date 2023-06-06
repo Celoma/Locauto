@@ -114,6 +114,7 @@
                         FROM Voiture v
                         LEFT JOIN Location l ON v.immatriculation = l.immatriculation JOIN modele USING(id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)
                         GROUP BY modele.libelle";
+            }
         ?>
     </div>
     <?php include "footer.php" ?>

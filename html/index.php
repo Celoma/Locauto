@@ -36,7 +36,7 @@
     </section>
     <section class="reserv">
         <div class="reserv-text">
-            <a href='location.php' class="btn">Trouve ta réservation</a>
+            <a href='location.php' class="btn">Réserve ta voiture</a>
         </div>
     </section>
     </div>
