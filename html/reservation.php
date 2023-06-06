@@ -3,10 +3,17 @@
     include "../bdd/biblio.php";
     $connexion = connexion();
     include "formTraitment.php";
+    if(!isset($_SESSION['connected'])){
+        $_SESSION['connected'] = false;
+        header('Location: voiture.php');
+    }
+    if(!isset($_SESSION['datefin'])){
+        header('Location: location.php');
+    }
     $_SESSION['url'] = "reservation.php?voiture=" . $_GET["voiture"];
     if(!isset($_SESSION['nb_day'])){
         $_SESSION['nb_day'] = 1;
-        $_SESSION['garage'] = "";
+        $_SESSION['garage'] = 0;
     }
 ?>
 <!DOCTYPE html>
@@ -51,20 +58,96 @@
                             </div>
                         </div>
                             ";
-                            if($_SESSION['garage'] == "") {
-
-                            } else {
-                                if($_SESSION['connected'] == 'true'){
-                                    if($_SESSION['idtype'] == 1){
-                                        echo"salam";
-                                    } else {
-                                        echo"salam les royas";
-                                    }
+                            if($_SESSION['garage']==""){
+                                header("location : location.php");
+                            }
+                            if($_SESSION['connected'] == 'true'){
+                                if($_SESSION['idtype'] == 1){
+                                    echo "<h2 class=location>Réserver du " . $_SESSION['datedebut'] . " au " . $_SESSION['datefin'] ."</h2>";
+                                    echo "<h2 class=location>Réservation de " . $_SESSION['villeDepart'] . " vers " . $_SESSION['villeArrive'] ."</h2>";
+                                    echo    "<br><form action='res.php?voiture=".$_GET['voiture']."' method='post'>
+                                                <table width='300' border='1'>
+                                                    <tr>
+                                                    <td><label>Multiple Selection </label>&nbsp;</td>
+                                                    <td><select name='select2' size='5' multiple='multiple' tabindex='1'>
+                                                    ";
+                                                    $connexion = connexion();
+                                                    $requete = '
+                                                    SELECT *
+                                                    FROM option';
+                                                    $resultat = mysqli_query($connexion, $requete);
+                                                    $i = 1;
+                                                    while($ligne = mysqli_fetch_array($resultat)){
+                                                        if($_SESSION['garage']==250 & $i==5){
+                                                            echo '<option selected value=' . $ligne['id_option'] . '>' . $ligne['libelle'] . ' <aa> ' . $ligne['prix']. '€<aa></option>';
+                                                        } else {
+                                                            echo '<option value=' . $ligne['id_option'] . '>' . $ligne['libelle'] . ' <aa> ' . $ligne['prix']. '€<aa></option>';
+                                                        }
+                                                        $i +=1;
+                                                    }
+                                    echo"
+                                                    </select>
+                                                    </td>
+                                                    </tr>
+                                                    <tr>
+                                                    </table>
+                                                <div class='recherchePerso'>
+                                                    <div class='recherchePersoGauche'>
+                                                        <select name='id_client' required>
+                                                            <option value='' hidden selected>Recherche par client</option>
+                                                            ";
+                                                                $connexion = connexion();
+                                                                $requete = '
+                                                                SELECT *
+                                                                FROM Client';
+                                                                $resultat = mysqli_query($connexion, $requete);
+                                                                $i = 1;
+                                                                while($ligne = mysqli_fetch_array($resultat)){
+                                                                        echo '<option value=' . $ligne['id_client'] . '>' . $ligne['mail'] . '</option>';
+                                                                }
+                                    echo"
+                                                        </select>
+                                                    </div>
+                                                    <div class='recherchePersoDroite'>
+                                                        <input type='submit' class='adminFormSubmit' value='Réserver pour ce client'>
+                                                    </div>
+                                                </div>
+                                            </form><br>";
                                 } else {
-                                    echo"<p class='btn2' id='bugguer'>Se connecter</p>";
-                            }
-                            }
-
+                                    echo "<h2 class=location>Réserver du " . $_SESSION['datedebut'] . " au " . $_SESSION['datefin'] ."</h2>";
+                                    echo "<h2 class=location>Réservation de " . $_SESSION['villeDepart'] . " vers " . $_SESSION['villeArrive'] ."</h2>";
+                                    echo    "<br><form action='res.php?voiture=".$_GET['voiture']."' method='post'>
+                                    <table width='300' border='1'>
+                                        <tr>
+                                        <td><label>Multiple Selection </label>&nbsp;</td>
+                                        <td><select name='select2' size='5' multiple='multiple' tabindex='1'>
+                                        ";
+                                        $connexion = connexion();
+                                        $requete = '
+                                        SELECT *
+                                        FROM option';
+                                        $resultat = mysqli_query($connexion, $requete);
+                                        $i = 1;
+                                        while($ligne = mysqli_fetch_array($resultat)){
+                                            if($_SESSION['garage']==250 & $i==5){
+                                                echo '<option selected value=' . $ligne['id_option'] . '>' . $ligne['libelle'] . ' <aa> ' . $ligne['prix']. '€<aa></option>';
+                                            } else {
+                                                echo '<option value=' . $ligne['id_option'] . '>' . $ligne['libelle'] . ' <aa> ' . $ligne['prix']. '€<aa></option>';
+                                            }
+                                            $i +=1;
+                                        }
+                        echo"
+                                        </select>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        </table>
+                                        <input type='submit' class='btn2' value='Réserver pour ce véhicule'>
+                                        ";
+                                }
+                            } else {
+                                echo"<p class='btn2' id='bugguer'>Se connecter</p>";
+                        }
                 }
 
             } else {

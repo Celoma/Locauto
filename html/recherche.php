@@ -28,14 +28,14 @@
                         echo "<h1>Erreur d'autorisation</h1>";
                     }
                 ?>
-            </div>
-        </div>
-                </div>
-        <?php
+                            <?php
                 if($_SESSION['idtype'] == 1){
                     include "redirect_admin.php";}
     ?>
             <?php include "footer.php" ?>
+        </div>
+            </div>
+
 
     <!-- Scripts -->
 

@@ -19,10 +19,7 @@
 
     <div class='Main'>
         <?php include "ImportHeader.php"?>
-        <div class='BodyPage'>
-        </div>
-    </div>
-    <h1 class='location'>Louer la voiture de votre rêve</h1>
+        <div class='BodyPage'>    <h1 class='location'>Louer la voiture de votre rêve</h1>
     <?php
         if(isset($_POST["datedebut"])){
                 $_SESSION['datedebut'] = $_POST['datedebut'];
@@ -121,6 +118,9 @@
                 </div>";
         ?>
     </div>
+        </div>
+    </div>
+
     <?php include "footer.php" ?>
 
 
