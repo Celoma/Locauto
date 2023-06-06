@@ -24,33 +24,41 @@
     </div>
     <h1 class='location'>Louer la voiture de votre rêve</h1>
     <?php
-        $date1 = new DateTime($_POST['datedebut']);
-        $date2 = new DateTime($_POST['datefin']);
-        $interval = $date1->diff($date2);
-        $numberOfDays = $interval->days;
-        $_SESSION['nb_day'] = $numberOfDays + 1;
-        echo "<h2 class='location'>Réservation pour " . $numberOfDays + 1 . " jours</h2>" ;
-    ?>
-    <div class='sousTitre'></div>
-
-    <div class="voitureLoc">
-        <?php
-            if(isset($_POST["villeDepart"])){
-                $_SESSION['url'] = "voiture.php";
+        if(isset($_POST["datedebut"])){
                 $_SESSION['datedebut'] = $_POST['datedebut'];
                 $_SESSION['datefin'] = $_POST['datefin'];
                 $_SESSION['villeDepart'] = $_POST['villeDepart'];
                 $_SESSION['villeArrive'] = $_POST['villeArrive'];
                 $_SESSION['modele'] = $_POST['modele'];
                 $_SESSION['marque'] = $_POST['marque'];
+        }
+
+        try {
+            $date1 = new DateTime($_SESSION['datedebut']);
+            $date2 = new DateTime($_SESSION['datefin']);
+            $interval = $date1->diff($date2);
+            $numberOfDays = $interval->days;
+            $_SESSION['nb_day'] = $numberOfDays + 1;
+            echo "<h2 class='location'>Réservation pour " . $numberOfDays + 1 . " jours</h2>" ;
+        } catch (Execption $e) {
+            $_SESSION['nb_day'] =  1;
+            echo "<h2 class='location'>Réservation pour 1 jour</h2>" ;
+        }
+
+    ?>
+    <div class='sousTitre'></div>
+
+    <div class="voitureLoc">
+        <?php
+            if(isset($_SESSION['datedebut'])){
                 $date_debut = $_SESSION['datedebut'];
                 $date_fin = $_SESSION['datefin'];
                 $nom_de_la_ville = $_SESSION['villeDepart'];
                 $nom_de_la_ville2 = $_SESSION['villeArrive'];
-                $modele = $_SESSION['modele'];
-                $marque = $_SESSION['marque'];
                 $con = connexion();
-                if($_POST['modele'] != ""){
+                if($_SESSION['modele'] != ""){
+                    $modele = $_SESSION['modele'];
+
                     $sql = "SELECT modele.libelle, v.immatriculation, marque.libelle, modele.image, categorie.prix
                     FROM Voiture v
                     LEFT JOIN Location l ON v.immatriculation = l.immatriculation JOIN modele USING(id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)
@@ -63,7 +71,9 @@
                             )
                         )
                     GROUP BY modele.libelle";
-                } else if($_POST['marque'] != ""){
+                } else if($_SESSION['marque'] != ""){
+                    $marque = $_SESSION['marque'];
+
                     $sql = "SELECT modele.libelle, v.immatriculation, marque.libelle, modele.image, categorie.prix
                     FROM Voiture v
                     LEFT JOIN Location l ON v.immatriculation = l.immatriculation JOIN modele USING(id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)
@@ -99,7 +109,11 @@
                         <h2> Prix : " . $row[4] * $_SESSION['nb_day'] . "€</h2>
                         <a href='reservation.php?voiture=" . $row[1] . "' class='btn2'>Réserver</a>
                     </div>";
-                }
+            } else {
+                $sql = "SELECT modele.libelle, v.immatriculation, marque.libelle, modele.image, categorie.prix
+                        FROM Voiture v
+                        LEFT JOIN Location l ON v.immatriculation = l.immatriculation JOIN modele USING(id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)
+                        GROUP BY modele.libelle";
             }
         ?>
     </div>
