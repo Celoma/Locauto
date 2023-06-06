@@ -586,7 +586,13 @@ select:invalid{
     text-align: center;
     font-size: 25px;
     font-weight: 600;
+    text-decoration: none;
 }
+.btnRecherche a{
+    text-decoration: none;
+    color: black;    
+}
+
 
 .btnRecherche:hover {
     background-color: #AAA;

@@ -135,7 +135,7 @@
 <h2 class='titlePartie'>Insertion</h2>
 <div class='conteneurAdmin'>
         <div id='btnInsertionClient' class='btnRecherche'>Insertion Client</div>
-        <div id='btnInsertionLocation' class='btnRecherche'>Insertion Location</div>
+        <div class='btnRecherche' ><a href="../html/location.php">Insertion Location</a></div> 
         <div id='btnInsertionVoiture' class='btnRecherche'>Insertion Voiture</div>
 </div>
 <div class="PopUpBg" id="PopUpBg"></div>

@@ -11,7 +11,7 @@
                 <ul>
                     <li><a href="../html/index.php"><i class="fas fa-home"></i> Acceuil</a></li>
                     <li><a href="../html/garage.php"><i class="fas fa-warehouse"></i> Nos Garages</a></li> 
-                    <li><a href="../html/voiture.php"><i class="fas fa-car"></i> Nos véhicules</a></li>
+                    <li><a href="../html/voitureaffiche.php"><i class="fas fa-car"></i> Nos véhicules</a></li>
                     <li><a href="https://gp-explorer.fr/programme/"><i class="fas fa-calendar-week"></i> Nos événements</a></li>
                     <li><a href="https://trollface.dk"><i class="fas fa-sliders-h"></i> Paramètres</a></li>
                     <li><a href="#azerty"><i class="fas fa-question-circle"></i> A propos de nous</a></li>
