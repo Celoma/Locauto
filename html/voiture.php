@@ -50,11 +50,15 @@
     <div class="voitureLoc">
         <?php
             $con = connexion();
+            $garage = 0;
             if(isset($_SESSION['datedebut'])){
                 $date_debut = $_SESSION['datedebut'];
                 $date_fin = $_SESSION['datefin'];
                 $nom_de_la_ville = $_SESSION['villeDepart'];
                 $nom_de_la_ville2 = $_SESSION['villeArrive'];
+                if($nom_de_la_ville != $nom_de_la_ville2){
+                    $garage = 250;
+                }
                 if($_SESSION['modele'] != ""){
                     $modele = $_SESSION['modele'];
 
@@ -103,7 +107,8 @@
                 $sql = "SELECT modele.libelle, v.immatriculation, marque.libelle, modele.image, categorie.prix
                         FROM Voiture v
                         LEFT JOIN Location l ON v.immatriculation = l.immatriculation JOIN modele USING(id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)
-                        GROUP BY modele.libelle";
+                        GROUP BY modele.libelle
+                        ORDER by marque.libelle ASC";
             }
             $res = mysqli_query($con,$sql);
             while ($row = mysqli_fetch_row($res))
@@ -111,7 +116,7 @@
                     <img src='../img/bdd_auto/" . $row[3] ."'>
                     <h2> Marque : " . $row[2] . "</h2>
                     <h2> Modèle : " . $row[0] . "</h2>
-                    <h2> Prix : " . $row[4] * $_SESSION['nb_day'] . "€</h2>
+                    <h2> Prix : " . $row[4] * $_SESSION['nb_day'] + $garage . "€</h2>
                     <a href='reservation.php?voiture=" . $row[1] . "' class='btn2'>Réserver</a>
                 </div>";
         ?>
