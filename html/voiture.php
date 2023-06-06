@@ -32,7 +32,7 @@
                 $_SESSION['modele'] = $_POST['modele'];
                 $_SESSION['marque'] = $_POST['marque'];
         }
-        if($_SESSION['datedebut']){
+        if(isset($_SESSION['datedebut'])){
             $date1 = new DateTime($_SESSION['datedebut']);
             $date2 = new DateTime($_SESSION['datefin']);
             $interval = $date1->diff($date2);
@@ -49,12 +49,12 @@
 
     <div class="voitureLoc">
         <?php
+            $con = connexion();
             if(isset($_SESSION['datedebut'])){
                 $date_debut = $_SESSION['datedebut'];
                 $date_fin = $_SESSION['datefin'];
                 $nom_de_la_ville = $_SESSION['villeDepart'];
                 $nom_de_la_ville2 = $_SESSION['villeArrive'];
-                $con = connexion();
                 if($_SESSION['modele'] != ""){
                     $modele = $_SESSION['modele'];
 
