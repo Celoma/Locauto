@@ -21,14 +21,12 @@
         <?php
             if(isset($_GET["voiture"])){
                 $con = connexion();
-                $sql = "SELECT * FROM voiture JOIN modele USING (id_modele) WHERE immatriculation='". $_GET["voiture"] ."';";
+                $sql = "SELECT image FROM voiture JOIN modele USING (id_modele) WHERE immatriculation='". $_GET["voiture"] ."';";
                 $res = mysqli_query($con,$sql);
-                echo mysqli_num_rows($res);
                 while ($row = mysqli_fetch_row($res)) {
-                    echo $row[0];
                     echo "<div class='presVoit'>
                         <div class='presVoitG'>
-                            <img href='../img/bdd_auto/" . $row[0] . "'>
+                            <img src='../img/bdd_auto/" . $row[0] . "'>
                         </div>
                         <div class='presVoitD'>
                         </div>

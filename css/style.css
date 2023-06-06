@@ -1214,4 +1214,14 @@ footer .form-control {
 .presVoit {
     width: 100%;
     display: flex;
+    height: calc(100vh - 80px);
+}
+
+.presVoitG {
+    width: 50%;
+    height: 100%;
+}
+
+.presVoitG img {
+
 }
