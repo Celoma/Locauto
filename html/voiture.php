@@ -32,15 +32,14 @@
                 $_SESSION['modele'] = $_POST['modele'];
                 $_SESSION['marque'] = $_POST['marque'];
         }
-
-        try {
+        if($_SESSION['datedebut']){
             $date1 = new DateTime($_SESSION['datedebut']);
             $date2 = new DateTime($_SESSION['datefin']);
             $interval = $date1->diff($date2);
             $numberOfDays = $interval->days;
             $_SESSION['nb_day'] = $numberOfDays + 1;
             echo "<h2 class='location'>Réservation pour " . $numberOfDays + 1 . " jours</h2>" ;
-        } catch (Execption $e) {
+        } else {
             $_SESSION['nb_day'] =  1;
             echo "<h2 class='location'>Réservation pour 1 jour</h2>" ;
         }
@@ -100,21 +99,21 @@
                             )
                         GROUP BY modele.libelle";
                 }
-                $res = mysqli_query($con,$sql);
-                while ($row = mysqli_fetch_row($res))
-                    echo"<div class='voiture'>
-                        <img src='../img/bdd_auto/" . $row[3] ."'>
-                        <h2> Marque : " . $row[2] . "</h2>
-                        <h2> Modèle : " . $row[0] . "</h2>
-                        <h2> Prix : " . $row[4] * $_SESSION['nb_day'] . "€</h2>
-                        <a href='reservation.php?voiture=" . $row[1] . "' class='btn2'>Réserver</a>
-                    </div>";
             } else {
                 $sql = "SELECT modele.libelle, v.immatriculation, marque.libelle, modele.image, categorie.prix
                         FROM Voiture v
                         LEFT JOIN Location l ON v.immatriculation = l.immatriculation JOIN modele USING(id_modele) JOIN marque USING (id_marque) JOIN categorie USING (id_categorie)
                         GROUP BY modele.libelle";
             }
+            $res = mysqli_query($con,$sql);
+            while ($row = mysqli_fetch_row($res))
+                echo"<div class='voiture'>
+                    <img src='../img/bdd_auto/" . $row[3] ."'>
+                    <h2> Marque : " . $row[2] . "</h2>
+                    <h2> Modèle : " . $row[0] . "</h2>
+                    <h2> Prix : " . $row[4] * $_SESSION['nb_day'] . "€</h2>
+                    <a href='reservation.php?voiture=" . $row[1] . "' class='btn2'>Réserver</a>
+                </div>";
         ?>
     </div>
     <?php include "footer.php" ?>
